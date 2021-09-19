@@ -19,69 +19,99 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="89e-nQ-TV6" kind="relationship" relationship="rootViewController" id="iB3-5H-HHt"/>
+                        <segue destination="5I6-xC-wEb" kind="relationship" relationship="rootViewController" id="yxy-10-l1T"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63Z-Ir-2el" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="73.660714285714278"/>
         </scene>
-        <!--Airline-->
-        <scene sceneID="EDr-ZH-gIi">
+        <!--Airlines-->
+        <scene sceneID="dBe-Dl-duP">
             <objects>
-                <tableViewController id="89e-nQ-TV6" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kab-gH-MSz">
+                <viewController id="5I6-xC-wEb" customClass="AirlinesVC" customModule="AirlineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rTt-gt-Qe4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cd0-wN-s4N">
-                            <rect key="frame" x="0.0" y="119.00000034679067" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Add New Airline">
-                                <color key="titleColor" systemColor="systemRedColor"/>
-                            </state>
-                            <connections>
-                                <segue destination="kr6-nv-Una" kind="presentation" id="JWw-zd-Bii"/>
-                            </connections>
-                        </button>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="Xrb-Rb-gWw">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xrb-Rb-gWw" id="wOh-9s-SGi">
-                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airline Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrJ-Zu-FXf">
-                                            <rect key="frame" x="28" y="24.5" width="340.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="CrJ-Zu-FXf" secondAttribute="trailing" constant="8" id="QbE-Tb-Obt"/>
-                                        <constraint firstItem="CrJ-Zu-FXf" firstAttribute="centerY" secondItem="wOh-9s-SGi" secondAttribute="centerY" id="RLC-sc-w7h"/>
-                                        <constraint firstItem="CrJ-Zu-FXf" firstAttribute="leading" secondItem="wOh-9s-SGi" secondAttribute="leadingMargin" constant="8" id="Zgq-yD-Cod"/>
-                                    </constraints>
-                                </tableViewCellContentView>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-4q-DeH" userLabel="SearchBarContainer">
+                                <rect key="frame" x="0.0" y="140" width="414" height="70"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KRO-M5-fb7">
+                                        <rect key="frame" x="8" y="9.5" width="398" height="51"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="2cO-eC-hal"/>
+                                    <constraint firstItem="KRO-M5-fb7" firstAttribute="centerY" secondItem="fLZ-4q-DeH" secondAttribute="centerY" id="dnj-BE-f2X"/>
+                                    <constraint firstItem="KRO-M5-fb7" firstAttribute="leading" secondItem="fLZ-4q-DeH" secondAttribute="leading" constant="8" id="nS9-m2-n4i"/>
+                                    <constraint firstAttribute="trailing" secondItem="KRO-M5-fb7" secondAttribute="trailing" constant="8" id="voq-jv-yoC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qL-Sb-mfr">
+                                <rect key="frame" x="314" y="772" width="80" height="70"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Xc1-9z-xIs"/>
+                                    <constraint firstAttribute="height" constant="70" id="dYA-Ea-78r"/>
+                                    <constraint firstAttribute="width" constant="80" id="hCt-9m-wJd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="+"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="pbL-ri-ZoZ" kind="show" trigger="accessoryAction" id="oiw-mf-Qg8"/>
+                                    <segue destination="kr6-nv-Una" kind="showDetail" id="ut1-6g-tgx"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="89e-nQ-TV6" id="umt-i1-A5O"/>
-                            <outlet property="delegate" destination="89e-nQ-TV6" id="Utx-bS-lrm"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Airline" largeTitleDisplayMode="always" id="9Dq-Sf-58G"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="geH-Gb-87m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VHT-dj-cNh">
+                                <rect key="frame" x="20" y="222" width="374" height="542"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="airlineCell" rowHeight="70" id="Ica-vw-1cR">
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ica-vw-1cR" id="h8u-yP-5Qd">
+                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="pbL-ri-ZoZ" kind="show" id="yJS-fE-21W"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4t7-eN-bcs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VHT-dj-cNh" firstAttribute="leading" secondItem="4t7-eN-bcs" secondAttribute="leading" constant="20" id="3nz-3a-nmK"/>
+                            <constraint firstItem="3qL-Sb-mfr" firstAttribute="top" secondItem="VHT-dj-cNh" secondAttribute="bottom" constant="8" id="Axe-cb-45N"/>
+                            <constraint firstItem="4t7-eN-bcs" firstAttribute="trailing" secondItem="VHT-dj-cNh" secondAttribute="trailing" constant="20" id="BK7-dW-aka"/>
+                            <constraint firstItem="3qL-Sb-mfr" firstAttribute="bottom" secondItem="4t7-eN-bcs" secondAttribute="bottom" constant="-20" id="Qqs-MY-Vp0"/>
+                            <constraint firstItem="fLZ-4q-DeH" firstAttribute="leading" secondItem="4t7-eN-bcs" secondAttribute="leading" id="S0f-i5-35n"/>
+                            <constraint firstItem="fLZ-4q-DeH" firstAttribute="top" secondItem="4t7-eN-bcs" secondAttribute="top" id="Tvg-O7-Dvz"/>
+                            <constraint firstItem="fLZ-4q-DeH" firstAttribute="trailing" secondItem="4t7-eN-bcs" secondAttribute="trailing" id="VXy-5r-Pfx"/>
+                            <constraint firstItem="4t7-eN-bcs" firstAttribute="trailing" secondItem="3qL-Sb-mfr" secondAttribute="trailing" constant="20" id="ZRb-ut-hz8"/>
+                            <constraint firstItem="VHT-dj-cNh" firstAttribute="top" secondItem="fLZ-4q-DeH" secondAttribute="bottomMargin" constant="20" id="oj0-6n-OxL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Airlines" id="vkp-8D-me8"/>
+                    <connections>
+                        <outlet property="tableView" destination="VHT-dj-cNh" id="7Dl-ps-gwy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KkP-vf-wgL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867" y="74"/>
+            <point key="canvasLocation" x="870" y="74"/>
         </scene>
-        <!--View Controller-->
+        <!--Details-->
         <scene sceneID="x7x-hl-tlZ">
             <objects>
                 <viewController id="pbL-ri-ZoZ" sceneMemberID="viewController">
@@ -90,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-9C-Ugc">
-                                <rect key="frame" x="20" y="160" width="374" height="261"/>
+                                <rect key="frame" x="20" y="108" width="374" height="261"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airline Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUn-Bw-ePg">
                                         <rect key="frame" x="20" y="20" width="346" height="24"/>
@@ -175,7 +205,7 @@
                             <constraint firstItem="WIJ-6t-fxI" firstAttribute="trailing" secondItem="5Xx-9C-Ugc" secondAttribute="trailing" constant="20" id="yxr-e5-W86"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="esY-0T-QrK"/>
+                    <navigationItem key="navigationItem" title="Details" largeTitleDisplayMode="never" id="esY-0T-QrK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dv-wh-AcT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
