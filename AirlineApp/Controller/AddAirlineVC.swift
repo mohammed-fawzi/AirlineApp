@@ -13,7 +13,9 @@ class AddAirlineVC: UIViewController {
     @IBOutlet weak var countryTextField: BindingTextField!
     @IBOutlet weak var sloganTextField: BindingTextField!
     @IBOutlet weak var headQuarterTextField: BindingTextField!
-    
+    @IBOutlet weak var logoUrlTextField: BindingTextField!
+    @IBOutlet weak var websiteTextField: BindingTextField!
+    @IBOutlet weak var establishDateTextField: BindingTextField!
     var addAirlineViewModel: AddAirlineViewModel!
 
     override func viewDidLoad() {
@@ -39,6 +41,18 @@ class AddAirlineVC: UIViewController {
             self.nameTextField.text = headQuarter
         }
         
+        addAirlineViewModel.logoUrl.subscribe { logoUrl in
+            self.logoUrlTextField.text = logoUrl
+        }
+        
+        addAirlineViewModel.website.subscribe { website in
+            self.websiteTextField.text = website
+        }
+        
+        addAirlineViewModel.establishDate.subscribe { date in
+            self.establishDateTextField.text = date
+        }
+        
         nameTextField.subscribe { name in
             self.addAirlineViewModel.name.value = name
         }
@@ -53,6 +67,18 @@ class AddAirlineVC: UIViewController {
         
         headQuarterTextField.subscribe { headQuarter in
             self.addAirlineViewModel.headQuarter.value = headQuarter
+        }
+        
+        logoUrlTextField.subscribe { url in
+            self.addAirlineViewModel.logoUrl.value = url
+        }
+        
+        websiteTextField.subscribe { website in
+            self.addAirlineViewModel.website.value = website
+        }
+        
+        establishDateTextField.subscribe { date in
+            self.addAirlineViewModel.establishDate.value = date
         }
         
         self.addAirlineViewModel.showMessageObserver = { [unowned self] title, message in

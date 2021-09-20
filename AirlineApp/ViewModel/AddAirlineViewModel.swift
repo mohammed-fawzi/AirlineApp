@@ -12,6 +12,9 @@ class AddAirlineViewModel {
     var country: Observable<String>!
     var slogan: Observable<String>!
     var headQuarter: Observable<String>!
+    var logoUrl: Observable<String>!
+    var website: Observable<String>!
+    var establishDate: Observable<String>!
     
     var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var dismissSelfObserver: (() -> Void)?

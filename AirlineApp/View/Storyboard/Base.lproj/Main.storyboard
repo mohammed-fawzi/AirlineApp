@@ -246,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="iac-7T-we6">
-                                <rect key="frame" x="20" y="105" width="374" height="214"/>
+                                <rect key="frame" x="20" y="105" width="374" height="394"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-q0-KBv" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -268,10 +268,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Logo URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-xm-aQA" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="240" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWf-2Z-RMn" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="300" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Establish Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LoU-je-VIS" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="360" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lfw-mw-hdO">
-                                <rect key="frame" x="20" y="369" width="374" height="100"/>
+                                <rect key="frame" x="20" y="549" width="374" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aco-Rx-lrV">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -340,9 +355,12 @@
                     </view>
                     <connections>
                         <outlet property="countryTextField" destination="hfi-XV-2J0" id="X5Z-Er-EDP"/>
+                        <outlet property="establishDateTextField" destination="LoU-je-VIS" id="jAF-Rp-TMR"/>
                         <outlet property="headQuarterTextField" destination="G3t-26-nqv" id="rev-QU-yLu"/>
+                        <outlet property="logoUrlTextField" destination="Jmv-xm-aQA" id="zvX-kT-ZZL"/>
                         <outlet property="nameTextField" destination="qZt-q0-KBv" id="Jm8-oY-XBy"/>
                         <outlet property="sloganTextField" destination="drY-7P-ZQZ" id="3yW-9d-jdc"/>
+                        <outlet property="websiteTextField" destination="aWf-2Z-RMn" id="sl7-4o-ISd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEn-VV-uKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
