@@ -10,9 +10,10 @@ import Foundation
 class AirlinesViewModel {
     
 
-    var messageObserver: ((_ title: String, _ message: String) -> Void)?
-    
     var airlines: Observable<[Airline]>!
+    var messageObserver: ((_ title: String, _ message: String) -> Void)?
+    var showDetailViewObserver: ((_ viewModel: AirlineDetailsViewModel?) -> Void)?
+
     
     init() {
         airlines = Observable([Airline]())
@@ -40,6 +41,20 @@ class AirlinesViewModel {
         let airline = airlines[indexPath.row]
         return AirlineCellViewModel(model: airline)
     }
+    
+    func airlineDetailsViewModel(atIndexPath indexPath:IndexPath) -> AirlineDetailsViewModel? {
+        guard let airlines = airlines.value else {return nil}
+        if ((indexPath.row < 0) || (indexPath.row >= numberOfAirlines())) {return nil}
+        let airline = airlines[indexPath.row]
+        return AirlineDetailsViewModel(model: airline)
+    }
+    
+    func selectedRow(atIndexPath indexPath: IndexPath){
+        let airlineDetailsViewModel = airlineDetailsViewModel(atIndexPath: indexPath)
+        showDetailViewObserver?(airlineDetailsViewModel)
+    }
+    
+    
     
   
     

@@ -25,7 +25,16 @@ class AirlinesVC: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        
+        viewModel.showDetailViewObserver = {viewModel in
+            guard let airlineDetailVC = self.storyboard?.instantiateAirlineDetailsVC() else {return}
+            airlineDetailVC.airlineDetailViewModel = viewModel
+            self.navigationController?.present(airlineDetailVC, animated: true)
+        }
     }
+    
+    
+    
 }
 
 extension AirlinesVC: UITableViewDataSource {
@@ -42,5 +51,7 @@ extension AirlinesVC: UITableViewDataSource {
 }
 
 extension AirlinesVC: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedRow(atIndexPath: indexPath)
+    }
 }

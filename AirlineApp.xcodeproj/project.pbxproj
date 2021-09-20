@@ -27,6 +27,8 @@
 		716873DD26F7DCD500AD0DE6 /* AirlinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873DC26F7DCD500AD0DE6 /* AirlinesViewModel.swift */; };
 		716873DF26F7DF5900AD0DE6 /* AirlineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873DE26F7DF5900AD0DE6 /* AirlineCellViewModel.swift */; };
 		716873E226F7DF8900AD0DE6 /* AirlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873E126F7DF8900AD0DE6 /* AirlineCell.swift */; };
+		716873E426F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873E326F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift */; };
+		716873E726F806DB00AD0DE6 /* Storyboard+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873E626F806DB00AD0DE6 /* Storyboard+Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		716873DC26F7DCD500AD0DE6 /* AirlinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesViewModel.swift; sourceTree = "<group>"; };
 		716873DE26F7DF5900AD0DE6 /* AirlineCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineCellViewModel.swift; sourceTree = "<group>"; };
 		716873E126F7DF8900AD0DE6 /* AirlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineCell.swift; sourceTree = "<group>"; };
+		716873E326F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineDetailsViewModel.swift; sourceTree = "<group>"; };
+		716873E626F806DB00AD0DE6 /* Storyboard+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		7168738D26F7918D00AD0DE6 /* AirlineApp */ = {
 			isa = PBXGroup;
 			children = (
+				716873E526F806B800AD0DE6 /* Extentions */,
 				716873D526F7C7AF00AD0DE6 /* Enums */,
 				716873D226F7C35200AD0DE6 /* Managers */,
 				716873D026F7C2BD00AD0DE6 /* Support */,
@@ -197,6 +202,7 @@
 			children = (
 				716873DC26F7DCD500AD0DE6 /* AirlinesViewModel.swift */,
 				716873DE26F7DF5900AD0DE6 /* AirlineCellViewModel.swift */,
+				716873E326F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -242,6 +248,14 @@
 				716873E126F7DF8900AD0DE6 /* AirlineCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		716873E526F806B800AD0DE6 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				716873E626F806DB00AD0DE6 /* Storyboard+Extention.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716873E726F806DB00AD0DE6 /* Storyboard+Extention.swift in Sources */,
 				716873D926F7D8A700AD0DE6 /* Observable.swift in Sources */,
 				716873DB26F7D90B00AD0DE6 /* BindingTextField.swift in Sources */,
 				716873D726F7C8EA00AD0DE6 /* AirlineApiError.swift in Sources */,
@@ -388,6 +403,7 @@
 				7168738F26F7918E00AD0DE6 /* AppDelegate.swift in Sources */,
 				716873C726F7B4D600AD0DE6 /* Airline.swift in Sources */,
 				7168739126F7918E00AD0DE6 /* SceneDelegate.swift in Sources */,
+				716873E426F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift in Sources */,
 				716873CF26F7C27800AD0DE6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
