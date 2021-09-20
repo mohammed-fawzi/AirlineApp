@@ -13,7 +13,8 @@ class AirlineDetailsVC: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var sloganLabel: UILabel!
     @IBOutlet weak var headquarterLabel: UILabel!
-    
+    @IBOutlet weak var establishDateLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
     var airlineDetailViewModel: AirlineDetailsViewModel!
 
     override func viewDidLoad() {
@@ -27,6 +28,13 @@ class AirlineDetailsVC: UIViewController {
             self.countryLabel.text = airline?.country ?? ""
             self.sloganLabel.text = airline?.slogan ?? ""
             self.headquarterLabel.text = airline?.headQuaters ?? ""
+            self.establishDateLabel.text = airline?.established ?? ""
+        }
+        
+        airlineDetailViewModel.logo.subscribe{image in
+            DispatchQueue.main.async {
+                self.logoImageView.image = image
+            }
         }
     }
     

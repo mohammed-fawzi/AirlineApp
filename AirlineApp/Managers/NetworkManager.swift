@@ -56,18 +56,24 @@ class NetworkManager{
     func downloadImage(from urlString:String, completionHandler: @escaping (UIImage)->Void){
         guard let url = URL(string: urlString) else {return}
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {return}
-            
-            guard let response = response as? HTTPURLResponse,
-                      response.statusCode == 200 else {return}
-            
-            guard let data = data,
-                  let image = UIImage(data: data) else {return}
-            
+        if let image = cache.object(forKey: urlString as NSString) {
             completionHandler(image)
+        }else{
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {return}
+                
+                guard let response = response as? HTTPURLResponse,
+                          response.statusCode == 200 else {return}
+                
+                guard let data = data,
+                      let image = UIImage(data: data) else {return}
+                
+                self.cache.setObject(image, forKey: urlString as NSString)
+                completionHandler(image)
+            }
+            task.resume()
         }
-        task.resume()
+        
     }
     
 

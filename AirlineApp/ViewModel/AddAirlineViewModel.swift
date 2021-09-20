@@ -23,7 +23,7 @@ class AddAirlineViewModel {
             if let airline = airline {
                 self.setAirlineModel(airline)
             }else{
-                self.airline = Airline(name: "", country: "", slogan: "", headQuaters: "")
+                self.airline = Airline(name: "", country: "", logo: "", slogan: "", headQuaters: "",website: "", established: "")
                 self.setAirlineModel(self.airline!)
             }
         }
