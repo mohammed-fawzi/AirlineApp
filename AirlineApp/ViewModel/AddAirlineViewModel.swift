@@ -8,6 +8,7 @@
 import Foundation
 
 class AddAirlineViewModel {
+    var id: Observable<Double>!
     var name: Observable<String>!
     var country: Observable<String>!
     var slogan: Observable<String>!
@@ -18,26 +19,18 @@ class AddAirlineViewModel {
     
     var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var dismissSelfObserver: (() -> Void)?
-    private var airline: Airline?
     
-    init(airline: Airline? = nil) {
-            self.airline = airline
-            
-            if let airline = airline {
-                self.setAirlineModel(airline)
-            }else{
-                self.airline = Airline(name: "", country: "", logo: "", slogan: "", headQuaters: "",website: "", established: "")
-                self.setAirlineModel(self.airline!)
-            }
+    init() {
+        id = Observable(1)
+        name = Observable("Test")
+        country = Observable("Egypt")
+        slogan = Observable("slogan")
+        headQuarter = Observable("Cairo")
+        logoUrl = Observable("Logo")
+        website = Observable("site")
+        establishDate = Observable("1994")
         }
         
-        func setAirlineModel(_ airline: Airline) {
-            name = Observable(airline.name)
-            country = Observable(airline.country ?? "")
-            slogan = Observable(airline.slogan ?? "")
-            headQuarter = Observable(airline.headQuaters ?? "")
-        }
-    
         func validateInput(name: String, country: String, slogan: String, headQuarter: String) -> AddAirlineFormError? {
            
             if name.isEmpty || country.isEmpty || slogan.isEmpty || headQuarter.isEmpty {
@@ -65,11 +58,28 @@ class AddAirlineViewModel {
                 
                 self.showMessageObserver?("Error", error.localizedDescription)
             } else {
-                
+                let airline = createModel()
+                NetworkManager.shared.addAirline(airline: airline) { error in
+                    if let error = error {
+                        self.showMessageObserver?("Error",error.localizedDescription)
+                    }else{
+                        self.showMessageObserver?("Request Completed","\(airline.name) added successfully")
+                    }
+                }
             }
         }
     
     func cancleButtonClicked(){
         dismissSelfObserver?()
+    }
+    
+    func createModel()->Airline{
+        return Airline(id: id.value, name: name.value ?? "",
+                       country: country.value,
+                       logo: logoUrl.value,
+                       slogan: slogan.value,
+                       headQuaters: headQuarter.value,
+                       website: website.value,
+                       established: establishDate.value)
     }
 }

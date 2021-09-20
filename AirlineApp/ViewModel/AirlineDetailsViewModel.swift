@@ -12,6 +12,7 @@ class AirlineDetailsViewModel {
     var airline: Observable<Airline>!
     var logo: Observable<UIImage>!
     var openSafariObserver: ((_ url: URL) -> Void)?
+    
     init(model: Airline) {
         airline = Observable(model)
         downloadLogo(fromURL: model.logo)

@@ -5,7 +5,7 @@
 //  Created by mohamed fawzy on 19September//2021.
 //
 
-import UIKit
+import UIKit.UIImage
 
 class NetworkManager{
     static let shared = NetworkManager()
@@ -15,7 +15,7 @@ class NetworkManager{
     let baseURL = "https://api.instantwebtools.net/v1/airlines"
     
     func getAirlines(completionHandler: @escaping (Result<[Airline], AirlineApiError>)->Void) {
-                
+        
         guard let url = URL(string: baseURL) else {
             completionHandler(.failure(.invalidRequest))
             return
@@ -27,10 +27,11 @@ class NetworkManager{
                 return
             }
             
-            guard let response = response as? HTTPURLResponse,
-                response.statusCode == 200 else {
-                    completionHandler(.failure(.serverError))
-                    return
+            if let response = response as? HTTPURLResponse,
+                  !(200..<300).contains(response.statusCode) {
+                let airlineApiError = self.httpResponseErrorMapping(errorCode: response.statusCode)
+                completionHandler(.failure(airlineApiError))
+                return
             }
             
             guard let data = data else {
@@ -40,11 +41,11 @@ class NetworkManager{
             
             do{
                 let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let airlines = try decoder.decode([Airline].self, from: data)
                 completionHandler(.success(airlines))
             }
-            catch {
+            catch let error{
+                print(error)
                 completionHandler(.failure(.invalidData))
             }
         }
@@ -52,6 +53,59 @@ class NetworkManager{
         task.resume()
     }
     
+    func httpResponseErrorMapping(errorCode:Int)->AirlineApiError{
+        switch(errorCode){
+
+        case 400..<500:
+            return .invalidRequest
+        case 500..<600:
+            return .serverError
+        default:
+            return .unknownError
+        }
+    }
+    
+    func addAirline(airline: Airline, completionHandler: @escaping (AirlineApiError?) -> Void) {
+        guard let url = URL(string: baseURL) else {
+            completionHandler(.invalidRequest)
+            return
+        }
+        var request: URLRequest
+        do{
+            let encoder = JSONEncoder()
+            let jsonData = try encoder.encode(airline)
+            request = createPostRequest(fromUrl: url, withData: jsonData)
+        }
+        catch {
+            completionHandler(.invalidData)
+            return
+        }
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let _ = error  {
+                completionHandler(.invalidRequest)
+                return
+            }
+            if let response = response as? HTTPURLResponse,
+                  !(200..<300).contains(response.statusCode) {
+                print(response)
+                let airlineApiError = self.httpResponseErrorMapping(errorCode: response.statusCode)
+                completionHandler(airlineApiError)
+                return
+            }
+            completionHandler(nil)
+        }
+        task.resume()
+    }
+    
+    func createPostRequest(fromUrl url:URL, withData data: Data)-> URLRequest{
+        // To ensure that our request is always sent, we tell
+        // the system to ignore all local cache data:
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = data
+        return request
+    }
     
     func downloadImage(from urlString:String, completionHandler: @escaping (UIImage)->Void){
         guard let url = URL(string: urlString) else {return}
@@ -63,7 +117,7 @@ class NetworkManager{
                 if error != nil {return}
                 
                 guard let response = response as? HTTPURLResponse,
-                          response.statusCode == 200 else {return}
+                      response.statusCode == 200 else {return}
                 
                 guard let data = data,
                       let image = UIImage(data: data) else {return}
@@ -73,10 +127,7 @@ class NetworkManager{
             }
             task.resume()
         }
-        
     }
-    
-
 }
 
 
@@ -94,54 +145,4 @@ class NetworkManager{
 
 
 
-
-
-
-
-
-
-// old way with out result type
-//    func getFollowers(for username: String,
-//                      page: Int,
-//                      completionHandler: @escaping ([Follower]?, GHError?)->Void) {
-//
-//        let endPoint = baseURL + "/users/\(username)/followers?per_page=100&page=\(page)"
-//
-//        guard let url = URL(string: endPoint) else {
-//            completionHandler(nil, GHError.invalidUsername)
-//            return
-//        }
-//
-//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            guard error == nil else {
-//                completionHandler(nil, GHError.unableToComplete)
-//                return
-//            }
-//
-//            guard let response = response as? HTTPURLResponse,
-//                response.statusCode == 200 else {
-//                    completionHandler(nil, GHError.invalidResponse)
-//                    return
-//            }
-//
-//            guard let data = data else {
-//                completionHandler(nil, GHError.invalidData)
-//                return
-//
-//            }
-//
-//            do{
-//                let decoder = JSONDecoder()
-//                decoder.keyDecodingStrategy = .convertFromSnakeCase
-//                let followers = try decoder.decode([Follower].self, from: data)
-//                completionHandler(followers, nil)
-//            }
-//            catch {
-//                completionHandler(nil, GHError.invalidData)
-//            }
-//        }
-//
-//        task.resume()
-//    }
-//}
 

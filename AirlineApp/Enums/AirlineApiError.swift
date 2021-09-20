@@ -11,6 +11,7 @@ enum AirlineApiError: Error {
     case serverError
     case invalidRequest
     case invalidData
+    case unknownError
     
     var localizedDescription: String {
         
@@ -18,9 +19,11 @@ enum AirlineApiError: Error {
         case .serverError:
             return "Internal server error please try agian later"
         case .invalidRequest:
-            return "Invalid Request Parameters"
+            return "Invalid Request"
         case .invalidData:
             return "Corrupted Data"
+        case .unknownError:
+            return "Somthing went wrong please try agian later"
         }
 
     }

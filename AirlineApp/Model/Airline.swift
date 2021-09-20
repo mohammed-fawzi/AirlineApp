@@ -8,11 +8,17 @@
 import Foundation
 
 struct Airline: Codable {
-    let name: String
-    let country: String?
-    let logo: String?
-    let slogan: String?
-    let headQuaters: String?
-    let website: String?
-    let established: String?
+    var id: Double?
+    var name: String
+    var country: String?
+    var logo: String?
+    var slogan: String?
+    var headQuaters: String?
+    var website: String?
+    var established: String?
+    
+    private enum CodingKeys : String, CodingKey {
+        case id, name, country, logo, slogan, headQuaters = "head_quaters", website, established
+        }
+    
 }

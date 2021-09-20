@@ -9,6 +9,7 @@ import UIKit
 
 class AddAirlineVC: UIViewController {
     
+    @IBOutlet weak var idTextField: BindingTextField!
     @IBOutlet weak var nameTextField: BindingTextField!
     @IBOutlet weak var countryTextField: BindingTextField!
     @IBOutlet weak var sloganTextField: BindingTextField!
@@ -25,6 +26,10 @@ class AddAirlineVC: UIViewController {
     }
     
     func bind(){
+        addAirlineViewModel.id.subscribe { id in
+            //self.idTextField.text = id?.description
+        }
+        
         addAirlineViewModel.name.subscribe { name in
             self.nameTextField.text = name
         }
@@ -38,7 +43,7 @@ class AddAirlineVC: UIViewController {
         }
         
         addAirlineViewModel.headQuarter.subscribe { headQuarter in
-            self.nameTextField.text = headQuarter
+            self.headQuarterTextField.text = headQuarter
         }
         
         addAirlineViewModel.logoUrl.subscribe { logoUrl in
@@ -51,6 +56,10 @@ class AddAirlineVC: UIViewController {
         
         addAirlineViewModel.establishDate.subscribe { date in
             self.establishDateTextField.text = date
+        }
+        
+        idTextField.subscribe { id in
+            self.addAirlineViewModel.id.value = Double(id)
         }
         
         nameTextField.subscribe { name in
@@ -82,11 +91,15 @@ class AddAirlineVC: UIViewController {
         }
         
         self.addAirlineViewModel.showMessageObserver = { [unowned self] title, message in
-            self.showAlert(withTitle: title, andErrorMessage: message)
+            DispatchQueue.main.async {
+                self.showAlert(withTitle: title, andErrorMessage: message)
+            }
         }
         
         self.addAirlineViewModel.dismissSelfObserver = {
-            self.dismiss(animated: true)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
         }
         
     }
