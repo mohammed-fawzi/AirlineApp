@@ -51,12 +51,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qL-Sb-mfr">
-                                <rect key="frame" x="314" y="772" width="80" height="70"/>
+                                <rect key="frame" x="324" y="772" width="70" height="70"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Xc1-9z-xIs"/>
-                                    <constraint firstAttribute="height" constant="70" id="dYA-Ea-78r"/>
-                                    <constraint firstAttribute="width" constant="80" id="hCt-9m-wJd"/>
+                                    <constraint firstAttribute="height" constant="70" id="Xc1-9z-xIs"/>
+                                    <constraint firstAttribute="width" constant="70" id="hCt-9m-wJd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,14 +70,14 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VHT-dj-cNh">
-                                <rect key="frame" x="20" y="222" width="374" height="542"/>
+                                <rect key="frame" x="10" y="222" width="394" height="542"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="airlineCell" rowHeight="70" id="Ica-vw-1cR" customClass="AirlineCell" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="394" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ica-vw-1cR" id="h8u-yP-5Qd">
-                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="364.5" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -88,9 +87,9 @@
                         <viewLayoutGuide key="safeArea" id="4t7-eN-bcs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VHT-dj-cNh" firstAttribute="leading" secondItem="4t7-eN-bcs" secondAttribute="leading" constant="20" id="3nz-3a-nmK"/>
+                            <constraint firstItem="VHT-dj-cNh" firstAttribute="leading" secondItem="4t7-eN-bcs" secondAttribute="leading" constant="10" id="3nz-3a-nmK"/>
                             <constraint firstItem="3qL-Sb-mfr" firstAttribute="top" secondItem="VHT-dj-cNh" secondAttribute="bottom" constant="8" id="Axe-cb-45N"/>
-                            <constraint firstItem="4t7-eN-bcs" firstAttribute="trailing" secondItem="VHT-dj-cNh" secondAttribute="trailing" constant="20" id="BK7-dW-aka"/>
+                            <constraint firstItem="4t7-eN-bcs" firstAttribute="trailing" secondItem="VHT-dj-cNh" secondAttribute="trailing" constant="10" id="BK7-dW-aka"/>
                             <constraint firstItem="3qL-Sb-mfr" firstAttribute="bottom" secondItem="4t7-eN-bcs" secondAttribute="bottom" constant="-20" id="Qqs-MY-Vp0"/>
                             <constraint firstItem="fLZ-4q-DeH" firstAttribute="leading" secondItem="4t7-eN-bcs" secondAttribute="leading" id="S0f-i5-35n"/>
                             <constraint firstItem="fLZ-4q-DeH" firstAttribute="top" secondItem="4t7-eN-bcs" secondAttribute="top" id="Tvg-O7-Dvz"/>
@@ -223,7 +222,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="iac-7T-we6">
-                                <rect key="frame" x="20" y="105" width="374" height="274"/>
+                                <rect key="frame" x="20" y="105" width="374" height="214"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-q0-KBv" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -245,15 +244,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="established" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jc7-dp-wIs" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="240" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lfw-mw-hdO">
-                                <rect key="frame" x="20" y="429" width="374" height="100"/>
+                                <rect key="frame" x="20" y="369" width="374" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aco-Rx-lrV">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -269,6 +263,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="confirmButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="zd5-Ls-rFq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-po-9j3">
                                         <rect key="frame" x="0.0" y="60" width="374" height="40"/>
@@ -290,6 +287,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="cancelButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="0ak-Pn-izL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -314,6 +314,12 @@
                             <constraint firstItem="U6e-M9-jYl" firstAttribute="trailing" secondItem="Lfw-mw-hdO" secondAttribute="trailing" constant="20" id="w4m-zf-kWI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countryTextField" destination="hfi-XV-2J0" id="X5Z-Er-EDP"/>
+                        <outlet property="headQuarterTextField" destination="G3t-26-nqv" id="rev-QU-yLu"/>
+                        <outlet property="nameTextField" destination="qZt-q0-KBv" id="Jm8-oY-XBy"/>
+                        <outlet property="sloganTextField" destination="drY-7P-ZQZ" id="3yW-9d-jdc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEn-VV-uKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

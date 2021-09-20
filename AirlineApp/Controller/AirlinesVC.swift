@@ -29,7 +29,7 @@ class AirlinesVC: UIViewController {
         viewModel.showDetailViewObserver = {viewModel in
             guard let airlineDetailVC = self.storyboard?.instantiateAirlineDetailsVC() else {return}
             airlineDetailVC.airlineDetailViewModel = viewModel
-            self.navigationController?.present(airlineDetailVC, animated: true)
+            self.navigationController?.pushViewController(airlineDetailVC, animated: true)
         }
     }
     
