@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class AirlineDetailsVC: UIViewController {
     
@@ -36,7 +37,15 @@ class AirlineDetailsVC: UIViewController {
                 self.logoImageView.image = image
             }
         }
+        
+        airlineDetailViewModel.openSafariObserver = {url in
+            let vc = SFSafariViewController(url: url)
+            self.present(vc, animated: true)
+        }
     }
     
+    @IBAction func visitButtonAction(_ sender: UIButton) {
+        self.airlineDetailViewModel.visitButtonClicked()
+}
 
 }
