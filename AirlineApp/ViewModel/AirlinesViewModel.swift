@@ -43,7 +43,6 @@ class AirlinesViewModel {
                     self.dismissloadingIndicatorObserver?()
                     let cdAirlines = PersistenceManager.shared.getAllAirlines()
                     self.airlines.value = cdAirlines.map {Airline(cdAirline: $0)}
-                    print(cdAirlines.count)
                     self.disableAddButtonObserver?()
                 }
                 self.showMessageObserver?("OOPs",error.localizedDescription)
@@ -51,11 +50,9 @@ class AirlinesViewModel {
         }
     }
     
-  
-    func getAirlinesFromLocalStorage()-> [Airline]{
-        let cdAirlines = PersistenceManager.shared.getAllAirlines()
-        let airlines = cdAirlines.map {Airline(cdAirline: $0)}
-        return airlines
+    func refresh(){
+        self.showloadingIndicatorObserver?()
+        getAirlines()
     }
     
     func numberOfAirlines()->Int{

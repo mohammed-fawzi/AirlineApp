@@ -12,6 +12,7 @@ class AirlinesVC: UIViewController {
     //MARK:- Outlets & Variables
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    let refreshControl = UIRefreshControl()
     
     var viewModel: AirlinesViewModel!
     var searchController:UISearchController!
@@ -22,6 +23,7 @@ class AirlinesVC: UIViewController {
         showLoadingIndicator()
         setupTableView()
         setupSearchBarController()
+        setupRefreshControl()
         viewModel = AirlinesViewModel()
         bind()
     }
@@ -30,6 +32,17 @@ class AirlinesVC: UIViewController {
         tableView.dataSource =  self
         tableView.delegate = self
     }
+    
+    func setupRefreshControl(){
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+     
+    @objc func refresh(_ sender: AnyObject) {
+        viewModel.refresh()
+    }
+    
 }
 
 //MARK:- Datasource
@@ -82,6 +95,7 @@ extension AirlinesVC {
     func bindViewModelProperties(){
         viewModel.airlines.subscribe { _ in
             DispatchQueue.main.async {
+                if self.refreshControl.isRefreshing {self.refreshControl.endRefreshing()}
                 self.tableView.reloadData()
             }
         }

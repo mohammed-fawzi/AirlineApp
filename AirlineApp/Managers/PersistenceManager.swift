@@ -25,17 +25,15 @@ class PersistenceManager {
     } ()
     
    private init() {
-    
     }
+    
     func save( ){
-        if container.viewContext.hasChanges {
-            do {
-                try container.viewContext.save()
-            }
-            catch {
-                print("error: ", error)
-            }
+        do {
+            try container.viewContext.save()
+        } catch let error {
+            print("error while saving context change: \(error)")
         }
+       
     }
     
  
@@ -62,7 +60,6 @@ extension PersistenceManager {
             self.deleteAllAirlines()
             airlines.forEach { airline in
                 let cdAirline = CDAirline(context: privateMOC)
-                //let cdAirline = NSEntityDescription.insertNewObject(forEntityName: "CDAirline", into: privateMOC) as! CDAirline
                 cdAirline.id = airline.id ?? 0
                 cdAirline.name = airline.name
                 cdAirline.country = airline.country ?? ""
@@ -71,7 +68,6 @@ extension PersistenceManager {
                 cdAirline.established = airline.established ?? ""
                 cdAirline.headQuaters = airline.headQuaters ?? ""
                 try? privateMOC.save()
-                try? self.container.viewContext.save()
             }
         }
     }
