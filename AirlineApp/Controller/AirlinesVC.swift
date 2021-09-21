@@ -99,6 +99,12 @@ extension AirlinesVC {
             self.navigationController?.pushViewController(airlineDetailVC, animated: true)
         }
         
+        viewModel.showMessageObserver = { title, message in
+            DispatchQueue.main.async {
+                self.showAlert(withTitle: title, andErrorMessage: message)
+            }
+        }
+        
         viewModel.showloadingIndicatorObserver = {
             DispatchQueue.main.async {
                 self.showLoadingIndicator()

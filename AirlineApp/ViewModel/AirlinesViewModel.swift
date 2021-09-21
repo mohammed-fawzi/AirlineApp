@@ -35,7 +35,7 @@ class AirlinesViewModel {
                 self.dismissloadingIndicatorObserver?()
                 self.airlines.value = airlines
             case .failure(let error):
-                print("error: \(error)")
+                self.showMessageObserver?("OOPs",error.localizedDescription)
             }
         }
     }
