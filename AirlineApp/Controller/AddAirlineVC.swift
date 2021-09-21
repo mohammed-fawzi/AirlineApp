@@ -18,28 +18,40 @@ class AddAirlineVC: UIViewController {
     @IBOutlet weak var websiteTextField: BindingTextField!
     @IBOutlet weak var establishDateTextField: BindingTextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    
     var addAirlineViewModel: AddAirlineViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addAirlineViewModel = AddAirlineViewModel()
+        observeKeyboard()
         bind()
-        NotificationCenter.default.addObserver(
-          self,
-          selector: #selector(keyboardWillShow(_:)),
-          name: UIResponder.keyboardWillShowNotification,
-          object: nil)
-
-        NotificationCenter.default.addObserver(
-          self,
-          selector: #selector(keyboardWillHide(_:)),
-          name: UIResponder.keyboardWillHideNotification,
-          object: nil)
     }
     
+    
+
+    //MARK:- Actions
+        @IBAction func confirmButtonAction(_ sender: UIButton) {
+            self.addAirlineViewModel.confirmButtonClicked()
+        }
+    
+        @IBAction func cancelButtonAction(_ sender: UIButton) {
+            self.addAirlineViewModel.cancleButtonClicked()
+    }
+
+}
+
+//MARK:- Binding
+extension AddAirlineVC {
     func bind(){
+        bindViewModelProperties()
+        bindViewControllerTextFields()
+        bindActions()
+    }
+    
+    func bindViewModelProperties(){
         addAirlineViewModel.id.subscribe { id in
-            //self.idTextField.text = id?.description
+            self.idTextField.text = id?.description
         }
         
         addAirlineViewModel.name.subscribe { name in
@@ -69,7 +81,9 @@ class AddAirlineVC: UIViewController {
         addAirlineViewModel.establishDate.subscribe { date in
             self.establishDateTextField.text = date
         }
-        
+    }
+    
+    func bindViewControllerTextFields(){
         idTextField.subscribe { id in
             self.addAirlineViewModel.id.value = Double(id)
         }
@@ -101,38 +115,32 @@ class AddAirlineVC: UIViewController {
         establishDateTextField.subscribe { date in
             self.addAirlineViewModel.establishDate.value = date
         }
-        
-        self.addAirlineViewModel.showMessageObserver = { [unowned self] title, message in
+    }
+    
+    func bindActions(){
+        addAirlineViewModel.showMessageObserver = { [unowned self] title, message in
             DispatchQueue.main.async {
                 self.showAlert(withTitle: title, andErrorMessage: message)
             }
         }
         
-        self.addAirlineViewModel.dismissSelfObserver = {
+        addAirlineViewModel.dismissSelfObserver = {
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }
         }
-        
     }
-    
-    func showAlert(withTitle title: String, andErrorMessage message: String) {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-
-        @IBAction func confirmButtonAction(_ sender: UIButton) {
-            self.addAirlineViewModel.confirmButtonClicked()
-        }
-    
-        @IBAction func cancelButtonAction(_ sender: UIButton) {
-            self.addAirlineViewModel.cancleButtonClicked()
-    }
-
 }
 
+//MARK:- keyboard
 extension AddAirlineVC {
+    
+    func observeKeyboard(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
       guard
         let userInfo = notification.userInfo,
@@ -147,7 +155,7 @@ extension AddAirlineVC {
       scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
     }
       
-    //2
+
     @objc func keyboardWillShow(_ notification: Notification) {
       adjustInsetForKeyboardShow(true, notification: notification)
     }

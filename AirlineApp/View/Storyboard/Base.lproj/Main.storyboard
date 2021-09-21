@@ -238,142 +238,6 @@
             <point key="canvasLocation" x="1847.826086956522" y="-384.375"/>
         </scene>
         <!--Add AirlineVC-->
-        <scene sceneID="nNg-1O-fX7">
-            <objects>
-                <viewController id="kr6-nv-Una" customClass="AddAirlineVC" customModule="AirlineApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4RN-E3-dNS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="iac-7T-we6">
-                                <rect key="frame" x="20" y="149" width="374" height="454"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X9W-mg-K6t" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-q0-KBv" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfi-XV-2J0" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Slogan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drY-7P-ZQZ" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="180" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Headquarter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-26-nqv" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="240" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Logo URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-xm-aQA" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="300" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWf-2Z-RMn" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="360" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Establish Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LoU-je-VIS" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="420" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lfw-mw-hdO">
-                                <rect key="frame" x="20" y="653" width="374" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aco-Rx-lrV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Kjn-hl-r0o"/>
-                                        </constraints>
-                                        <state key="normal" title="Confirm">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="confirmButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="zd5-Ls-rFq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-po-9j3">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="mEN-2G-h5t"/>
-                                        </constraints>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" systemColor="labelColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="cancelButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="0ak-Pn-izL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Airline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBU-r7-Zpw">
-                                <rect key="frame" x="8" y="89" width="398" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="U6e-M9-jYl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="iac-7T-we6" firstAttribute="top" secondItem="bBU-r7-Zpw" secondAttribute="top" constant="60" id="1dU-h5-Z1c"/>
-                            <constraint firstItem="iac-7T-we6" firstAttribute="leading" secondItem="U6e-M9-jYl" secondAttribute="leading" constant="20" id="9mA-r8-Ue3"/>
-                            <constraint firstItem="bBU-r7-Zpw" firstAttribute="top" secondItem="U6e-M9-jYl" secondAttribute="top" constant="45" id="Cdj-wW-jhI"/>
-                            <constraint firstItem="Lfw-mw-hdO" firstAttribute="top" secondItem="iac-7T-we6" secondAttribute="bottom" constant="50" id="G3j-M6-8T3"/>
-                            <constraint firstItem="bBU-r7-Zpw" firstAttribute="leading" secondItem="U6e-M9-jYl" secondAttribute="leading" constant="8" id="MKi-Mu-Git"/>
-                            <constraint firstItem="U6e-M9-jYl" firstAttribute="trailing" secondItem="iac-7T-we6" secondAttribute="trailing" constant="20" id="X1F-j1-Lju"/>
-                            <constraint firstItem="Lfw-mw-hdO" firstAttribute="leading" secondItem="U6e-M9-jYl" secondAttribute="leading" constant="20" id="bCl-i4-MGm"/>
-                            <constraint firstItem="U6e-M9-jYl" firstAttribute="trailing" secondItem="bBU-r7-Zpw" secondAttribute="trailing" constant="8" id="qat-Yq-utY"/>
-                            <constraint firstItem="U6e-M9-jYl" firstAttribute="trailing" secondItem="Lfw-mw-hdO" secondAttribute="trailing" constant="20" id="w4m-zf-kWI"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="countryTextField" destination="hfi-XV-2J0" id="X5Z-Er-EDP"/>
-                        <outlet property="establishDateTextField" destination="LoU-je-VIS" id="jAF-Rp-TMR"/>
-                        <outlet property="headQuarterTextField" destination="G3t-26-nqv" id="rev-QU-yLu"/>
-                        <outlet property="idTextField" destination="X9W-mg-K6t" id="G9f-oB-ORQ"/>
-                        <outlet property="logoUrlTextField" destination="Jmv-xm-aQA" id="zvX-kT-ZZL"/>
-                        <outlet property="nameTextField" destination="qZt-q0-KBv" id="Jm8-oY-XBy"/>
-                        <outlet property="sloganTextField" destination="drY-7P-ZQZ" id="3yW-9d-jdc"/>
-                        <outlet property="websiteTextField" destination="aWf-2Z-RMn" id="sl7-4o-ISd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MEn-VV-uKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1847.826086956522" y="322.76785714285711"/>
-        </scene>
-        <!--Add AirlineVC-->
         <scene sceneID="NA9-Ds-yy1">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Rh-QL-jrd" customClass="AddAirlineVC" customModule="AirlineApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -481,7 +345,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="confirmButtonAction:" destination="3Rh-QL-jrd" eventType="touchUpInside" id="Qcg-cy-bdq"/>
-                                                            <action selector="confirmButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="RhT-GQ-U0d"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOX-iT-Ylh">
@@ -505,7 +368,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="cancelButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="gOQ-zO-0Qt"/>
                                                             <action selector="cancelButtonAction:" destination="3Rh-QL-jrd" eventType="touchUpInside" id="kIp-Jg-14q"/>
                                                         </connections>
                                                     </button>
