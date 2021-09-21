@@ -33,6 +33,7 @@
 		716873EB26F80F9800AD0DE6 /* AddAirlineFormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873EA26F80F9800AD0DE6 /* AddAirlineFormError.swift */; };
 		716873ED26F9593700AD0DE6 /* UITextField + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873EC26F9593700AD0DE6 /* UITextField + Extention.swift */; };
 		716873EF26F9646300AD0DE6 /* UIViewController + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873EE26F9646300AD0DE6 /* UIViewController + Extention.swift */; };
+		716873F126F9E44B00AD0DE6 /* BindingSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873F026F9E44B00AD0DE6 /* BindingSearchTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		716873EA26F80F9800AD0DE6 /* AddAirlineFormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAirlineFormError.swift; sourceTree = "<group>"; };
 		716873EC26F9593700AD0DE6 /* UITextField + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extention.swift"; sourceTree = "<group>"; };
 		716873EE26F9646300AD0DE6 /* UIViewController + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extention.swift"; sourceTree = "<group>"; };
+		716873F026F9E44B00AD0DE6 /* BindingSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingSearchTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				716873C626F7B4D600AD0DE6 /* Airline.swift */,
 				716873D826F7D8A700AD0DE6 /* Observable.swift */,
 				716873DA26F7D90B00AD0DE6 /* BindingTextField.swift */,
+				716873F026F9E44B00AD0DE6 /* BindingSearchTextField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				716873E926F80CC600AD0DE6 /* AddAirlineViewModel.swift in Sources */,
 				716873D926F7D8A700AD0DE6 /* Observable.swift in Sources */,
 				716873DB26F7D90B00AD0DE6 /* BindingTextField.swift in Sources */,
+				716873F126F9E44B00AD0DE6 /* BindingSearchTextField.swift in Sources */,
 				716873D726F7C8EA00AD0DE6 /* AirlineApiError.swift in Sources */,
 				716873D426F7C38D00AD0DE6 /* NetworkManager.swift in Sources */,
 				7168739926F7918E00AD0DE6 /* AirlineApp.xcdatamodeld in Sources */,

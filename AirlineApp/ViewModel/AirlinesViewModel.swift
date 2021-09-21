@@ -9,14 +9,19 @@ import Foundation
 
 class AirlinesViewModel {
     
-
     var airlines: Observable<[Airline]>!
-    var messageObserver: ((_ title: String, _ message: String) -> Void)?
+    var searchResults: Observable<[Airline]>!
+    var searchText: String = "" {
+        willSet {
+            updateSearchResults(newValue)
+        }
+    }
+    var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var showDetailViewObserver: ((_ viewModel: AirlineDetailsViewModel?) -> Void)?
 
-    
     init() {
         airlines = Observable([Airline]())
+        searchResults = Observable([Airline]())
         getAirlines()
     }
     
@@ -32,21 +37,7 @@ class AirlinesViewModel {
     }
     
     func numberOfAirlines()->Int{
-        return airlines.value?.count ?? 0
-    }
-    
-    func airlineCellViewModel(atIndexPath indexPath:IndexPath) -> AirlineCellViewModel? {
-        guard let airlines = airlines.value else {return nil}
-        if ((indexPath.row < 0) || (indexPath.row >= numberOfAirlines())) {return nil}
-        let airline = airlines[indexPath.row]
-        return AirlineCellViewModel(model: airline)
-    }
-    
-    func airlineDetailsViewModel(atIndexPath indexPath:IndexPath) -> AirlineDetailsViewModel? {
-        guard let airlines = airlines.value else {return nil}
-        if ((indexPath.row < 0) || (indexPath.row >= numberOfAirlines())) {return nil}
-        let airline = airlines[indexPath.row]
-        return AirlineDetailsViewModel(model: airline)
+        return !searchText.isEmpty ? searchResults.value!.count :airlines.value?.count ?? 0
     }
     
     func selectedRow(atIndexPath indexPath: IndexPath){
@@ -54,8 +45,40 @@ class AirlinesViewModel {
         showDetailViewObserver?(airlineDetailsViewModel)
     }
     
+    //MARK:- ViewModels
+    func airlineCellViewModel(atIndexPath indexPath:IndexPath) -> AirlineCellViewModel? {
+        guard let airlines = airlines.value else {return nil}
+        if ((indexPath.row < 0) || (indexPath.row >= numberOfAirlines())) {return nil}
+        let airline = !searchText.isEmpty ? searchResults.value![indexPath.row] :airlines[indexPath.row]
+        return AirlineCellViewModel(model: airline)
+    }
     
+    func airlineDetailsViewModel(atIndexPath indexPath:IndexPath) -> AirlineDetailsViewModel? {
+        guard let airlines = airlines.value else {return nil}
+        if ((indexPath.row < 0) || (indexPath.row >= numberOfAirlines())) {return nil}
+        let airline = !searchText.isEmpty ? searchResults.value![indexPath.row] : airlines[indexPath.row]
+        return AirlineDetailsViewModel(model: airline)
+    }
     
-  
+    //MARK:- Search
+    private func updateSearchResults(_ searchText: String?) {
+        guard let airlines = airlines.value,
+              let searchText = searchText,
+              !searchText.isEmpty else {
+            searchResults.value?.removeAll()
+            return
+        }
+        searchResults.value = airlines.filter{ (airline:Airline) -> Bool in
+            return checkIf(airline: airline, contains: searchText)
+        }
+    }
     
+    func checkIf(airline: Airline, contains searchText: String)-> Bool {
+        let textSearchCompareOptions: NSString.CompareOptions = [ .caseInsensitive , .literal]
+        let nameMatch = airline.name.range(of: searchText, options: textSearchCompareOptions)
+        let countryMatch = airline.country?.range(of: searchText, options: textSearchCompareOptions)
+        //some api airlines do not have id
+        let idMatch = (airline.id != nil) ? (airline.id == Double(searchText)) : false
+        return nameMatch != nil || countryMatch != nil || idMatch
+    }
 }
