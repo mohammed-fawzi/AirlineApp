@@ -24,7 +24,7 @@ class AddAirlineViewModel {
     
     init() {
         id = Observable("")
-        name = Observable("Test")
+        name = Observable("Test3")
         country = Observable("Egypt")
         slogan = Observable("slogan")
         headQuarter = Observable("Cairo")
@@ -33,33 +33,16 @@ class AddAirlineViewModel {
         establishDate = Observable("1994")
         }
         
-        func validateInput(name: String, country: String, slogan: String, headQuarter: String) -> AddAirlineFormError? {
-           
-            if name.isEmpty || country.isEmpty || slogan.isEmpty || headQuarter.isEmpty {
-                return .empty
-                
-            } else if !validate(country: country) {
-                return .invalidInput
-            }
-            
-            return nil
-        }
-    
-    func validate(country: String) -> Bool {
-            let alphaNumericRegex = "^[a-zA-Z]+$"
-            let alphaNumericTest = NSPredicate(format: "SELF MATCHES %@", alphaNumericRegex)
-            return alphaNumericTest.evaluate(with: country)
-        }
-    
     func confirmButtonClicked() {
-        self.showloadingIndicatorObserver?()
-            if let error = self.validateInput(name: self.name.value ?? "",
-                                              country: self.country.value ?? "",
-                                              slogan: self.slogan.value ?? "",
-                                              headQuarter: self.headQuarter.value ?? "") {
+        if let error = self.validateInput(id: id.value ?? "",
+                                          name: name.value ?? "",
+                                          country: country.value ?? "",
+                                          slogan: slogan.value ?? "",
+                                          headQuarter: headQuarter.value ?? "") {
                 
                 self.showMessageObserver?("Error", error.localizedDescription)
             } else {
+                self.showloadingIndicatorObserver?()
                 let airline = createModel()
                 NetworkManager.shared.addAirline(airline: airline) { error in
                     self.dismissloadingIndicatorObserver?()
@@ -77,7 +60,8 @@ class AddAirlineViewModel {
     }
     
     func createModel()->Airline{
-        return Airline(id: Double(id.value!), name: name.value ?? "",
+        return Airline(id: Double(id.value!),
+                       name: name.value ?? "",
                        country: country.value,
                        logo: logoUrl.value,
                        slogan: slogan.value,
@@ -85,4 +69,25 @@ class AddAirlineViewModel {
                        website: website.value,
                        established: establishDate.value)
     }
+}
+
+//MARK:- Validate
+extension AddAirlineViewModel {
+    func validateInput(id:String, name: String, country: String, slogan: String, headQuarter: String) -> AddAirlineFormError? {
+           print(id)
+        if id.isEmpty || name.isEmpty || country.isEmpty || slogan.isEmpty || headQuarter.isEmpty {
+                return .empty
+            }
+        else if !validate(country: country) {
+                return .country
+            }
+            
+            return nil
+        }
+    
+    func validate(country: String) -> Bool {
+            let alphaNumericRegex = "^[a-zA-Z]+$"
+            let alphaNumericTest = NSPredicate(format: "SELF MATCHES %@", alphaNumericRegex)
+            return alphaNumericTest.evaluate(with: country)
+        }
 }

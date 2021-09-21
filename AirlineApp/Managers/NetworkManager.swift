@@ -15,55 +15,30 @@ class NetworkManager{
     private let baseURL = "https://api.instantwebtools.net/v1/airlines"
     
     func getAirlines(completionHandler: @escaping (Result<[Airline], AirlineApiError>)->Void) {
-        
         guard let url = URL(string: baseURL) else {
             completionHandler(.failure(.invalidRequest))
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil else {
-                completionHandler(.failure(.invalidRequest))
-                return
-            }
-            
-            if let response = response as? HTTPURLResponse,
-                  !(200..<300).contains(response.statusCode) {
-                let airlineApiError = self.httpResponseErrorMapping(errorCode: response.statusCode)
-                completionHandler(.failure(airlineApiError))
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(.failure(.invalidData))
-                return
-            }
-            
-            do{
-                let decoder = JSONDecoder()
-                let airlines = try decoder.decode([Airline].self, from: data)
-                completionHandler(.success(airlines))
-            }
-            catch{
-                completionHandler(.failure(.invalidData))
+            if let error = self.errorExists(error: error, response: response, data: data) {
+                completionHandler(.failure(error))
+            }else{
+                do{
+                    let decoder = JSONDecoder()
+                    let airlines = try decoder.decode([Airline].self, from: data!)
+                    completionHandler(.success(airlines))
+                }
+                catch{
+                    completionHandler(.failure(.invalidData))
+                }
             }
         }
         
         task.resume()
     }
     
-    private func httpResponseErrorMapping(errorCode:Int)->AirlineApiError{
-        switch(errorCode){
 
-        case 400..<500:
-            return .invalidRequest
-        case 500..<600:
-            return .serverError
-        default:
-            return .unknownError
-        }
-    }
-    
     func addAirline(airline: Airline, completionHandler: @escaping (AirlineApiError?) -> Void) {
         guard let url = URL(string: baseURL) else {
             completionHandler(.invalidRequest)
@@ -80,17 +55,11 @@ class NetworkManager{
             return
         }
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let _ = error  {
-                completionHandler(.invalidRequest)
-                return
+            if let error = self.errorExists(error: error, response: response, data: data) {
+                completionHandler(error)
+            }else{
+                completionHandler(nil)
             }
-            if let response = response as? HTTPURLResponse,
-                  !(200..<300).contains(response.statusCode) {
-                let airlineApiError = self.httpResponseErrorMapping(errorCode: response.statusCode)
-                completionHandler(airlineApiError)
-                return
-            }
-            completionHandler(nil)
         }
         task.resume()
     }
@@ -128,8 +97,46 @@ class NetworkManager{
     }
 }
 
-
-
+//MARK:- Error Handeling
+extension NetworkManager {
+    private func errorExists(error:Error?, response: URLResponse?, data:Data?)-> AirlineApiError?{
+        if  let error = error{
+            let mappedError = transportErrorMapping(error: error)
+            return mappedError
+        }
+        
+        if let response = response as? HTTPURLResponse,
+              !(200..<300).contains(response.statusCode) {
+            let mappedError = self.httpResponseErrorMapping(errorCode: response.statusCode)
+            return mappedError
+        }
+        
+        if data == nil{
+            return .invalidData
+        }
+        return nil
+    }
+    
+    private func transportErrorMapping(error: Error) -> AirlineApiError{
+        switch error {
+            case let error as NSError where error.code == NSURLErrorNotConnectedToInternet:
+                return .noInternetConnection
+            case let error:
+                print(error)
+                return .unknownError
+            }
+    }
+    private func httpResponseErrorMapping(errorCode:Int)->AirlineApiError{
+        switch(errorCode){
+        case 400..<500:
+            return .invalidRequest
+        case 500..<600:
+            return .serverError
+        default:
+            return .unknownError
+        }
+    }
+}
 
 
 
