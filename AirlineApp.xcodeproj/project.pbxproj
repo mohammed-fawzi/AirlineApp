@@ -33,6 +33,9 @@
 		716873EB26F80F9800AD0DE6 /* AddAirlineFormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873EA26F80F9800AD0DE6 /* AddAirlineFormError.swift */; };
 		716873ED26F9593700AD0DE6 /* UITextField + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873EC26F9593700AD0DE6 /* UITextField + Extention.swift */; };
 		716873EF26F9646300AD0DE6 /* UIViewController + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873EE26F9646300AD0DE6 /* UIViewController + Extention.swift */; };
+		71FE001826FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001626FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift */; };
+		71FE001926FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001726FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift */; };
+		71FE001B26FA4ADA00C8E1B6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001A26FA4ADA00C8E1B6 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		716873EA26F80F9800AD0DE6 /* AddAirlineFormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAirlineFormError.swift; sourceTree = "<group>"; };
 		716873EC26F9593700AD0DE6 /* UITextField + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extention.swift"; sourceTree = "<group>"; };
 		716873EE26F9646300AD0DE6 /* UIViewController + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extention.swift"; sourceTree = "<group>"; };
+		71FE001626FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAirline+CoreDataClass.swift"; sourceTree = "<group>"; };
+		71FE001726FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAirline+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		71FE001A26FA4ADA00C8E1B6 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,7 @@
 		716873C126F7B2D900AD0DE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71FE001526FA4A7500C8E1B6 /* CoreData */,
 				716873D526F7C7AF00AD0DE6 /* Enums */,
 				716873C626F7B4D600AD0DE6 /* Airline.swift */,
 				716873D826F7D8A700AD0DE6 /* Observable.swift */,
@@ -239,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				716873D326F7C38D00AD0DE6 /* NetworkManager.swift */,
+				71FE001A26FA4ADA00C8E1B6 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -276,6 +284,15 @@
 				716873DA26F7D90B00AD0DE6 /* BindingTextField.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		71FE001526FA4A7500C8E1B6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				71FE001726FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift */,
+				71FE001626FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +428,7 @@
 				716873E726F806DB00AD0DE6 /* Storyboard+Extention.swift in Sources */,
 				716873E926F80CC600AD0DE6 /* AddAirlineViewModel.swift in Sources */,
 				716873D926F7D8A700AD0DE6 /* Observable.swift in Sources */,
+				71FE001B26FA4ADA00C8E1B6 /* PersistenceManager.swift in Sources */,
 				716873DB26F7D90B00AD0DE6 /* BindingTextField.swift in Sources */,
 				716873D726F7C8EA00AD0DE6 /* AirlineApiError.swift in Sources */,
 				716873D426F7C38D00AD0DE6 /* NetworkManager.swift in Sources */,
@@ -421,11 +439,13 @@
 				716873EB26F80F9800AD0DE6 /* AddAirlineFormError.swift in Sources */,
 				716873CD26F7B70400AD0DE6 /* AddAirlineVC.swift in Sources */,
 				716873E226F7DF8900AD0DE6 /* AirlineCell.swift in Sources */,
+				71FE001826FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift in Sources */,
 				716873CB26F7B6E600AD0DE6 /* AirlineDetailsVC.swift in Sources */,
 				716873DD26F7DCD500AD0DE6 /* AirlinesViewModel.swift in Sources */,
 				7168738F26F7918E00AD0DE6 /* AppDelegate.swift in Sources */,
 				716873C726F7B4D600AD0DE6 /* Airline.swift in Sources */,
 				716873EF26F9646300AD0DE6 /* UIViewController + Extention.swift in Sources */,
+				71FE001926FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift in Sources */,
 				7168739126F7918E00AD0DE6 /* SceneDelegate.swift in Sources */,
 				716873E426F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift in Sources */,
 				716873CF26F7C27800AD0DE6 /* Constants.swift in Sources */,

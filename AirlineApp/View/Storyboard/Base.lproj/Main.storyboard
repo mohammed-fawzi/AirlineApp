@@ -82,6 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Airlines" id="vkp-8D-me8"/>
                     <connections>
+                        <outlet property="addButton" destination="3qL-Sb-mfr" id="OOu-Re-8U0"/>
                         <outlet property="tableView" destination="VHT-dj-cNh" id="7Dl-ps-gwy"/>
                     </connections>
                 </viewController>

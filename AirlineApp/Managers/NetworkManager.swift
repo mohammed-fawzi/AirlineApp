@@ -20,6 +20,7 @@ class NetworkManager{
             return
         }
         
+        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = self.errorExists(error: error, response: response, data: data) {
                 completionHandler(.failure(error))

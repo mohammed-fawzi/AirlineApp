@@ -16,12 +16,14 @@ class AirlinesViewModel {
             updateSearchResults(newValue)
         }
     }
+    
     var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var showDetailViewObserver: ((_ viewModel: AirlineDetailsViewModel?) -> Void)?
     var showloadingIndicatorObserver: (() -> Void)?
     var dismissloadingIndicatorObserver: (() -> Void)?
-
-
+    var disableAddButtonObserver: (() -> Void)?
+    var enableAddButtonObserver: (() -> Void)?
+    
     init() {
         airlines = Observable([Airline]())
         searchResults = Observable([Airline]())
@@ -34,10 +36,25 @@ class AirlinesViewModel {
             case .success(let airlines):
                 self.dismissloadingIndicatorObserver?()
                 self.airlines.value = airlines
+                PersistenceManager.shared.deleteAllAirlines()
+                PersistenceManager.shared.addAirlines(airlines: airlines)
+                self.enableAddButtonObserver?()
             case .failure(let error):
+                if error == .noInternetConnection {
+                    self.dismissloadingIndicatorObserver?()
+                    self.airlines.value = self.getAirlinesFromLocalStorage()
+                    self.disableAddButtonObserver?()
+                }
                 self.showMessageObserver?("OOPs",error.localizedDescription)
             }
         }
+    }
+    
+  
+    func getAirlinesFromLocalStorage()-> [Airline]{
+        let cdAirlines = PersistenceManager.shared.getAllAirlines()
+        let airlines = cdAirlines.map {Airline(cdAirline: $0)}
+        return airlines
     }
     
     func numberOfAirlines()->Int{

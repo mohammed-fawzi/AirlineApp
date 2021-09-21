@@ -11,6 +11,7 @@ class AirlinesVC: UIViewController {
     
     //MARK:- Outlets & Variables
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
     
     var viewModel: AirlinesViewModel!
     var searchController:UISearchController!
@@ -114,6 +115,18 @@ extension AirlinesVC {
         viewModel.dismissloadingIndicatorObserver = {
             DispatchQueue.main.async {
                 self.dismissLoadingIndicator()
+            }
+        }
+        
+        viewModel.enableAddButtonObserver = {
+            DispatchQueue.main.async {
+                self.addButton.isEnabled = true
+            }
+        }
+        
+        viewModel.disableAddButtonObserver = {
+            DispatchQueue.main.async {
+                self.addButton.isEnabled = false
             }
         }
     }
