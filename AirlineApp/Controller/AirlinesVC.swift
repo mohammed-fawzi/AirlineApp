@@ -18,6 +18,7 @@ class AirlinesVC: UIViewController {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoadingIndicator()
         setupTableView()
         setupSearchBarController()
         viewModel = AirlinesViewModel()
@@ -96,6 +97,18 @@ extension AirlinesVC {
             guard let airlineDetailVC = self.storyboard?.instantiateAirlineDetailsVC() else {return}
             airlineDetailVC.airlineDetailViewModel = viewModel
             self.navigationController?.pushViewController(airlineDetailVC, animated: true)
+        }
+        
+        viewModel.showloadingIndicatorObserver = {
+            DispatchQueue.main.async {
+                self.showLoadingIndicator()
+            }
+        }
+        
+        viewModel.dismissloadingIndicatorObserver = {
+            DispatchQueue.main.async {
+                self.dismissLoadingIndicator()
+            }
         }
     }
 }

@@ -19,6 +19,8 @@ class AddAirlineViewModel {
     
     var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var dismissSelfObserver: (() -> Void)?
+    var showloadingIndicatorObserver: (() -> Void)?
+    var dismissloadingIndicatorObserver: (() -> Void)?
     
     init() {
         id = Observable("")
@@ -50,6 +52,7 @@ class AddAirlineViewModel {
         }
     
     func confirmButtonClicked() {
+        self.showloadingIndicatorObserver?()
             if let error = self.validateInput(name: self.name.value ?? "",
                                               country: self.country.value ?? "",
                                               slogan: self.slogan.value ?? "",
@@ -59,6 +62,7 @@ class AddAirlineViewModel {
             } else {
                 let airline = createModel()
                 NetworkManager.shared.addAirline(airline: airline) { error in
+                    self.dismissloadingIndicatorObserver?()
                     if let error = error {
                         self.showMessageObserver?("Error",error.localizedDescription)
                     }else{

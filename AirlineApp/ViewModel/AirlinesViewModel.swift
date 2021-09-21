@@ -18,6 +18,9 @@ class AirlinesViewModel {
     }
     var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var showDetailViewObserver: ((_ viewModel: AirlineDetailsViewModel?) -> Void)?
+    var showloadingIndicatorObserver: (() -> Void)?
+    var dismissloadingIndicatorObserver: (() -> Void)?
+
 
     init() {
         airlines = Observable([Airline]())
@@ -29,6 +32,7 @@ class AirlinesViewModel {
         NetworkManager.shared.getAirlines { result in
             switch result{
             case .success(let airlines):
+                self.dismissloadingIndicatorObserver?()
                 self.airlines.value = airlines
             case .failure(let error):
                 print("error: \(error)")

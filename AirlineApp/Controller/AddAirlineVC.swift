@@ -125,6 +125,18 @@ extension AddAirlineVC {
                 self.dismiss(animated: true)
             }
         }
+        
+        addAirlineViewModel.showloadingIndicatorObserver = {
+            DispatchQueue.main.async {
+                self.showLoadingIndicator()
+            }
+        }
+        
+        addAirlineViewModel.dismissloadingIndicatorObserver = {
+            DispatchQueue.main.async {
+                self.dismissLoadingIndicator()
+            }
+        }
     }
 }
 
