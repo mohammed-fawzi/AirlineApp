@@ -66,7 +66,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="kr6-nv-Una" kind="showDetail" id="ut1-6g-tgx"/>
+                                    <segue destination="3Rh-QL-jrd" kind="presentation" id="fCX-tB-M67"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VHT-dj-cNh">
@@ -242,11 +242,11 @@
             <objects>
                 <viewController id="kr6-nv-Una" customClass="AddAirlineVC" customModule="AirlineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4RN-E3-dNS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="iac-7T-we6">
-                                <rect key="frame" x="20" y="105" width="374" height="454"/>
+                                <rect key="frame" x="20" y="149" width="374" height="454"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X9W-mg-K6t" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -291,7 +291,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lfw-mw-hdO">
-                                <rect key="frame" x="20" y="609" width="374" height="100"/>
+                                <rect key="frame" x="20" y="653" width="374" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aco-Rx-lrV">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -338,7 +338,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Airline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBU-r7-Zpw">
-                                <rect key="frame" x="8" y="45" width="398" height="24"/>
+                                <rect key="frame" x="8" y="89" width="398" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -371,7 +371,197 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEn-VV-uKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="323"/>
+            <point key="canvasLocation" x="1847.826086956522" y="322.76785714285711"/>
+        </scene>
+        <!--Add AirlineVC-->
+        <scene sceneID="NA9-Ds-yy1">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Rh-QL-jrd" customClass="AddAirlineVC" customModule="AirlineApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mij-DU-Zu4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czb-Ww-pWd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBo-y9-61m" userLabel="Container View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Airline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHh-lB-1bJ">
+                                                <rect key="frame" x="8" y="60" width="398" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Kp4-mR-0SR" userLabel="TextFields Stack View">
+                                                <rect key="frame" x="20" y="124" width="374" height="454"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ain-CT-tgP" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPA-c5-qxH" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="60" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-1p-5if" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="120" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Slogan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ngl-Pw-eK9" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="180" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Headquarter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-05-4pS" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="240" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Logo URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="46S-I8-4r5" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="300" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hD-dc-px1" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="360" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Establish Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbX-kj-OML" customClass="BindingTextField" customModule="AirlineApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="420" width="374" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-xa-YOk" userLabel="Buttons Stack View">
+                                                <rect key="frame" x="20" y="638" width="374" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgX-V8-DdL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="qxR-7L-irf"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Confirm">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="confirmButtonAction:" destination="3Rh-QL-jrd" eventType="touchUpInside" id="Qcg-cy-bdq"/>
+                                                            <action selector="confirmButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="RhT-GQ-U0d"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOX-iT-Ylh">
+                                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="xKh-FW-EYq"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                <integer key="value" value="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cancelButtonAction:" destination="kr6-nv-Una" eventType="touchUpInside" id="gOQ-zO-0Qt"/>
+                                                            <action selector="cancelButtonAction:" destination="3Rh-QL-jrd" eventType="touchUpInside" id="kIp-Jg-14q"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="vHh-lB-1bJ" firstAttribute="leading" secondItem="XBo-y9-61m" secondAttribute="leading" constant="8" id="6CP-I2-oSV"/>
+                                            <constraint firstItem="Kp4-mR-0SR" firstAttribute="leading" secondItem="XBo-y9-61m" secondAttribute="leading" constant="20" id="EQo-fL-lmY"/>
+                                            <constraint firstItem="Kp4-mR-0SR" firstAttribute="top" secondItem="vHh-lB-1bJ" secondAttribute="bottom" constant="40" id="G4c-Gu-9Db"/>
+                                            <constraint firstItem="vHh-lB-1bJ" firstAttribute="top" secondItem="XBo-y9-61m" secondAttribute="top" constant="60" id="Lqu-N4-GiB"/>
+                                            <constraint firstAttribute="trailing" secondItem="OGA-xa-YOk" secondAttribute="trailing" constant="20" id="ULR-Cu-nrZ"/>
+                                            <constraint firstItem="OGA-xa-YOk" firstAttribute="top" secondItem="Kp4-mR-0SR" secondAttribute="bottom" constant="60" id="Vyw-jU-Gs4"/>
+                                            <constraint firstAttribute="height" constant="896" id="bEa-tF-Yl6"/>
+                                            <constraint firstAttribute="trailing" secondItem="vHh-lB-1bJ" secondAttribute="trailing" constant="8" id="q8X-vP-neD"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kp4-mR-0SR" secondAttribute="trailing" constant="20" id="x6V-ma-f0g"/>
+                                            <constraint firstItem="OGA-xa-YOk" firstAttribute="leading" secondItem="XBo-y9-61m" secondAttribute="leading" constant="20" id="xiE-bY-Cdo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="XBo-y9-61m" firstAttribute="width" secondItem="czb-Ww-pWd" secondAttribute="width" id="5fV-TK-ngY"/>
+                                    <constraint firstAttribute="bottom" secondItem="XBo-y9-61m" secondAttribute="bottom" id="QJW-hH-vFd"/>
+                                    <constraint firstItem="XBo-y9-61m" firstAttribute="top" secondItem="czb-Ww-pWd" secondAttribute="top" id="UPz-ty-Uc3"/>
+                                    <constraint firstItem="XBo-y9-61m" firstAttribute="leading" secondItem="czb-Ww-pWd" secondAttribute="leading" id="n1H-CD-zoj"/>
+                                    <constraint firstAttribute="trailing" secondItem="XBo-y9-61m" secondAttribute="trailing" id="q4a-tC-aIp"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="63r-G8-OYZ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="e7W-zj-qEF"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tuU-jx-yfW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="czb-Ww-pWd" secondAttribute="bottom" id="IWv-of-x4F"/>
+                            <constraint firstItem="czb-Ww-pWd" firstAttribute="leading" secondItem="tuU-jx-yfW" secondAttribute="leading" id="PbS-3U-dJl"/>
+                            <constraint firstItem="czb-Ww-pWd" firstAttribute="top" secondItem="tuU-jx-yfW" secondAttribute="top" id="X9Z-yb-nE9"/>
+                            <constraint firstItem="czb-Ww-pWd" firstAttribute="trailing" secondItem="tuU-jx-yfW" secondAttribute="trailing" id="bFA-ss-iyG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countryTextField" destination="wYV-1p-5if" id="HSJ-OE-E2r"/>
+                        <outlet property="establishDateTextField" destination="sbX-kj-OML" id="nAb-x9-H9I"/>
+                        <outlet property="headQuarterTextField" destination="Khh-05-4pS" id="1vL-dv-nru"/>
+                        <outlet property="idTextField" destination="ain-CT-tgP" id="Dfc-BR-HA5"/>
+                        <outlet property="logoUrlTextField" destination="46S-I8-4r5" id="hee-Nx-6vg"/>
+                        <outlet property="nameTextField" destination="UPA-c5-qxH" id="lZo-E2-hRu"/>
+                        <outlet property="scrollView" destination="czb-Ww-pWd" id="5t7-dW-Mye"/>
+                        <outlet property="sloganTextField" destination="Ngl-Pw-eK9" id="CN7-7U-EIf"/>
+                        <outlet property="websiteTextField" destination="7hD-dc-px1" id="lRc-Zi-ItG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OE4-8o-fgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2560.8695652173915" y="322.76785714285711"/>
         </scene>
     </scenes>
     <resources>

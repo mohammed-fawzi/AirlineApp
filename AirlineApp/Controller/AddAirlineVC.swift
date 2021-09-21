@@ -17,12 +17,24 @@ class AddAirlineVC: UIViewController {
     @IBOutlet weak var logoUrlTextField: BindingTextField!
     @IBOutlet weak var websiteTextField: BindingTextField!
     @IBOutlet weak var establishDateTextField: BindingTextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     var addAirlineViewModel: AddAirlineViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addAirlineViewModel = AddAirlineViewModel()
         bind()
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(keyboardWillShow(_:)),
+          name: UIResponder.keyboardWillShowNotification,
+          object: nil)
+
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(keyboardWillHide(_:)),
+          name: UIResponder.keyboardWillHideNotification,
+          object: nil)
     }
     
     func bind(){
@@ -118,4 +130,28 @@ class AddAirlineVC: UIViewController {
             self.addAirlineViewModel.cancleButtonClicked()
     }
 
+}
+
+extension AddAirlineVC {
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+      guard
+        let userInfo = notification.userInfo,
+        let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey]
+          as? NSValue
+        else {
+          return
+      }
+        
+      let adjustmentHeight = (keyboardFrame.cgRectValue.height + 20) * (show ? 1 : -1)
+      scrollView.contentInset.bottom += adjustmentHeight
+      scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
+    }
+      
+    //2
+    @objc func keyboardWillShow(_ notification: Notification) {
+      adjustInsetForKeyboardShow(true, notification: notification)
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
+      adjustInsetForKeyboardShow(false, notification: notification)
+    }
 }
