@@ -36,13 +36,14 @@ class AirlinesViewModel {
             case .success(let airlines):
                 self.dismissloadingIndicatorObserver?()
                 self.airlines.value = airlines
-                PersistenceManager.shared.deleteAllAirlines()
                 PersistenceManager.shared.addAirlines(airlines: airlines)
                 self.enableAddButtonObserver?()
             case .failure(let error):
                 if error == .noInternetConnection {
                     self.dismissloadingIndicatorObserver?()
-                    self.airlines.value = self.getAirlinesFromLocalStorage()
+                    let cdAirlines = PersistenceManager.shared.getAllAirlines()
+                    self.airlines.value = cdAirlines.map {Airline(cdAirline: $0)}
+                    print(cdAirlines.count)
                     self.disableAddButtonObserver?()
                 }
                 self.showMessageObserver?("OOPs",error.localizedDescription)

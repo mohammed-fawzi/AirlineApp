@@ -55,28 +55,25 @@ extension PersistenceManager {
     return []
     }
     
-    func addNewAirline(airline: Airline,context:NSManagedObjectContext ) throws {
-        let cdAirline = CDAirline(context: container.viewContext)
-        cdAirline.id = airline.id ?? 0
-        cdAirline.name = airline.name
-        cdAirline.country = airline.country ?? ""
-        cdAirline.slogan = airline.slogan ?? ""
-        cdAirline.logo = airline.logo ?? ""
-        cdAirline.established = airline.established ?? ""
-        cdAirline.headQuaters = airline.headQuaters ?? ""
-        
-        try context.save()
-    }
-    
     func addAirlines(airlines: [Airline]){
         let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateMOC.parent = container.viewContext
         privateMOC.perform {
+            self.deleteAllAirlines()
             airlines.forEach { airline in
-                try? self.addNewAirline(airline: airline,context: privateMOC)
+                let cdAirline = CDAirline(context: privateMOC)
+                //let cdAirline = NSEntityDescription.insertNewObject(forEntityName: "CDAirline", into: privateMOC) as! CDAirline
+                cdAirline.id = airline.id ?? 0
+                cdAirline.name = airline.name
+                cdAirline.country = airline.country ?? ""
+                cdAirline.slogan = airline.slogan ?? ""
+                cdAirline.logo = airline.logo ?? ""
+                cdAirline.established = airline.established ?? ""
+                cdAirline.headQuaters = airline.headQuaters ?? ""
+                try? privateMOC.save()
+                try? self.container.viewContext.save()
             }
         }
-        
     }
     
     func deleteAllAirlines(){
