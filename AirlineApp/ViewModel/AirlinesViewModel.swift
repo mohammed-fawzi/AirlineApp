@@ -73,7 +73,7 @@ class AirlinesViewModel {
         }
     }
     
-    func checkIf(airline: Airline, contains searchText: String)-> Bool {
+    private func checkIf(airline: Airline, contains searchText: String)-> Bool {
         let textSearchCompareOptions: NSString.CompareOptions = [ .caseInsensitive , .literal]
         let nameMatch = airline.name.range(of: searchText, options: textSearchCompareOptions)
         let countryMatch = airline.country?.range(of: searchText, options: textSearchCompareOptions)

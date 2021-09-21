@@ -9,6 +9,7 @@ import UIKit
 
 class AddAirlineVC: UIViewController {
     
+    //MARK:- Outlets & Variables
     @IBOutlet weak var idTextField: BindingTextField!
     @IBOutlet weak var nameTextField: BindingTextField!
     @IBOutlet weak var countryTextField: BindingTextField!
@@ -21,6 +22,7 @@ class AddAirlineVC: UIViewController {
     
     var addAirlineViewModel: AddAirlineViewModel!
 
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addAirlineViewModel = AddAirlineViewModel()
@@ -28,8 +30,6 @@ class AddAirlineVC: UIViewController {
         bind()
     }
     
-    
-
     //MARK:- Actions
         @IBAction func confirmButtonAction(_ sender: UIButton) {
             self.addAirlineViewModel.confirmButtonClicked()
@@ -38,7 +38,6 @@ class AddAirlineVC: UIViewController {
         @IBAction func cancelButtonAction(_ sender: UIButton) {
             self.addAirlineViewModel.cancleButtonClicked()
     }
-
 }
 
 //MARK:- Binding
@@ -50,10 +49,7 @@ extension AddAirlineVC {
     }
     
     func bindViewModelProperties(){
-        addAirlineViewModel.id.subscribe { id in
-            self.idTextField.text = id?.description
-        }
-        
+ 
         addAirlineViewModel.name.subscribe { name in
             self.nameTextField.text = name
         }
@@ -85,7 +81,7 @@ extension AddAirlineVC {
     
     func bindViewControllerTextFields(){
         idTextField.subscribe { id in
-            self.addAirlineViewModel.id.value = Double(id)
+            self.addAirlineViewModel.id.value = id
         }
         
         nameTextField.subscribe { name in

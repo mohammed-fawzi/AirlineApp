@@ -9,37 +9,19 @@ import UIKit
 
 class AirlinesVC: UIViewController {
     
+    //MARK:- Outlets & Variables
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: AirlinesViewModel!
     var searchController:UISearchController!
     
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupSearchBarController()
         viewModel = AirlinesViewModel()
         bind()
-    }
-
-    func bind(){
-        viewModel.airlines.subscribe { _ in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
-        viewModel.searchResults.subscribe { _ in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
-        viewModel.showDetailViewObserver = {viewModel in
-            guard let airlineDetailVC = self.storyboard?.instantiateAirlineDetailsVC() else {return}
-            airlineDetailVC.airlineDetailViewModel = viewModel
-            self.navigationController?.pushViewController(airlineDetailVC, animated: true)
-        }
     }
 
     func setupTableView(){
@@ -65,6 +47,7 @@ extension AirlinesVC: UITableViewDataSource {
 extension AirlinesVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectedRow(atIndexPath: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -84,5 +67,35 @@ extension AirlinesVC: UISearchResultsUpdating {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = .systemRed
         navigationItem.searchController = searchController
+    }
+}
+
+//MARK:- Binding
+extension AirlinesVC {
+    func bind(){
+        bindViewModelProperties()
+        bindViewModelActions()
+    }
+    
+    func bindViewModelProperties(){
+        viewModel.airlines.subscribe { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        viewModel.searchResults.subscribe { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func bindViewModelActions(){
+        viewModel.showDetailViewObserver = {viewModel in
+            guard let airlineDetailVC = self.storyboard?.instantiateAirlineDetailsVC() else {return}
+            airlineDetailVC.airlineDetailViewModel = viewModel
+            self.navigationController?.pushViewController(airlineDetailVC, animated: true)
+        }
     }
 }

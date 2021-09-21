@@ -10,6 +10,7 @@ import SafariServices
 
 class AirlineDetailsVC: UIViewController {
     
+    //MARK:- Outlets & Variables
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var sloganLabel: UILabel!
@@ -17,13 +18,27 @@ class AirlineDetailsVC: UIViewController {
     @IBOutlet weak var establishDateLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
     var airlineDetailViewModel: AirlineDetailsViewModel!
-
+    
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
     }
     
+    //MARK:- Actions
+    @IBAction func visitButtonAction(_ sender: UIButton) {
+        self.airlineDetailViewModel.visitButtonClicked()
+    }    
+}
+
+//MARK:- Binding
+extension AirlineDetailsVC {
     func bind(){
+        bindViewModelProperties()
+        bindViewModelActions()
+    }
+    
+    func bindViewModelProperties(){
         airlineDetailViewModel.airline.subscribe { airline in
             self.nameLabel.text = airline?.name ?? ""
             self.countryLabel.text = airline?.country ?? ""
@@ -37,15 +52,12 @@ class AirlineDetailsVC: UIViewController {
                 self.logoImageView.image = image
             }
         }
-        
+    }
+    
+    func bindViewModelActions(){
         airlineDetailViewModel.openSafariObserver = {url in
             let vc = SFSafariViewController(url: url)
             self.present(vc, animated: true)
         }
     }
-    
-    @IBAction func visitButtonAction(_ sender: UIButton) {
-        self.airlineDetailViewModel.visitButtonClicked()
-}
-
 }

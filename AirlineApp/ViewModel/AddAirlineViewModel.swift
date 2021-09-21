@@ -8,20 +8,20 @@
 import Foundation
 
 class AddAirlineViewModel {
-    var id: Observable<Double>!
-    var name: Observable<String>!
-    var country: Observable<String>!
-    var slogan: Observable<String>!
-    var headQuarter: Observable<String>!
-    var logoUrl: Observable<String>!
-    var website: Observable<String>!
-    var establishDate: Observable<String>!
+    var id: Observable<String>
+    var name: Observable<String>
+    var country: Observable<String>
+    var slogan: Observable<String>
+    var headQuarter: Observable<String>
+    var logoUrl: Observable<String>
+    var website: Observable<String>
+    var establishDate: Observable<String>
     
     var showMessageObserver: ((_ title: String, _ message: String) -> Void)?
     var dismissSelfObserver: (() -> Void)?
     
     init() {
-        id = Observable(1)
+        id = Observable("")
         name = Observable("Test")
         country = Observable("Egypt")
         slogan = Observable("slogan")
@@ -50,7 +50,6 @@ class AddAirlineViewModel {
         }
     
     func confirmButtonClicked() {
-            
             if let error = self.validateInput(name: self.name.value ?? "",
                                               country: self.country.value ?? "",
                                               slogan: self.slogan.value ?? "",
@@ -74,7 +73,7 @@ class AddAirlineViewModel {
     }
     
     func createModel()->Airline{
-        return Airline(id: id.value, name: name.value ?? "",
+        return Airline(id: Double(id.value!), name: name.value ?? "",
                        country: country.value,
                        logo: logoUrl.value,
                        slogan: slogan.value,

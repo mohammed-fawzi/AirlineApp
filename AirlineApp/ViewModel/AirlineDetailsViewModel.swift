@@ -18,7 +18,7 @@ class AirlineDetailsViewModel {
         downloadLogo(fromURL: model.logo)
     }
     
-    func downloadLogo(fromURL url: String?) {
+    private func downloadLogo(fromURL url: String?) {
         let placeholderLogo = UIImage(named: "airline-logo-placeholder") ?? UIImage()
         logo = Observable(placeholderLogo)
         guard let imageUrl = url else {return}

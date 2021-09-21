@@ -11,8 +11,8 @@ class NetworkManager{
     static let shared = NetworkManager()
     private init(){}
     
-    let cache = NSCache<NSString,UIImage>()
-    let baseURL = "https://api.instantwebtools.net/v1/airlines"
+    private let cache = NSCache<NSString,UIImage>()
+    private let baseURL = "https://api.instantwebtools.net/v1/airlines"
     
     func getAirlines(completionHandler: @escaping (Result<[Airline], AirlineApiError>)->Void) {
         
@@ -44,8 +44,7 @@ class NetworkManager{
                 let airlines = try decoder.decode([Airline].self, from: data)
                 completionHandler(.success(airlines))
             }
-            catch let error{
-                print(error)
+            catch{
                 completionHandler(.failure(.invalidData))
             }
         }
@@ -53,7 +52,7 @@ class NetworkManager{
         task.resume()
     }
     
-    func httpResponseErrorMapping(errorCode:Int)->AirlineApiError{
+    private func httpResponseErrorMapping(errorCode:Int)->AirlineApiError{
         switch(errorCode){
 
         case 400..<500:
@@ -87,7 +86,6 @@ class NetworkManager{
             }
             if let response = response as? HTTPURLResponse,
                   !(200..<300).contains(response.statusCode) {
-                print(response)
                 let airlineApiError = self.httpResponseErrorMapping(errorCode: response.statusCode)
                 completionHandler(airlineApiError)
                 return
