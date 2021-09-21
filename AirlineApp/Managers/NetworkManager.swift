@@ -55,8 +55,8 @@ class NetworkManager{
             completionHandler(.invalidData)
             return
         }
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = self.errorExists(error: error, response: response, data: data) {
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            if let error = self?.errorExists(error: error, response: response, data: data) {
                 completionHandler(error)
             }else{
                 completionHandler(nil)
@@ -108,7 +108,7 @@ extension NetworkManager {
         
         if let response = response as? HTTPURLResponse,
               !(200..<300).contains(response.statusCode) {
-            let mappedError = self.httpResponseErrorMapping(errorCode: response.statusCode)
+            let mappedError = httpResponseErrorMapping(errorCode: response.statusCode)
             return mappedError
         }
         

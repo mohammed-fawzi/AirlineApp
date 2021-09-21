@@ -34,15 +34,15 @@ class AddAirlineViewModel {
         }
         
     func confirmButtonClicked() {
-        if let error = self.validateInput(id: id.value ?? "",
+        if let error = validateInput(id: id.value ?? "",
                                           name: name.value ?? "",
                                           country: country.value ?? "",
                                           slogan: slogan.value ?? "",
                                           headQuarter: headQuarter.value ?? "") {
                 
-                self.showMessageObserver?("Error", error.localizedDescription)
+                showMessageObserver?("Error", error.localizedDescription)
             } else {
-                self.showloadingIndicatorObserver?()
+                showloadingIndicatorObserver?()
                 let airline = createModel()
                 NetworkManager.shared.addAirline(airline: airline) { error in
                     self.dismissloadingIndicatorObserver?()

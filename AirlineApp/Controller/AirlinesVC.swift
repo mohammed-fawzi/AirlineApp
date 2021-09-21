@@ -93,14 +93,14 @@ extension AirlinesVC {
     }
     
     func bindViewModelProperties(){
-        viewModel.airlines.subscribe { _ in
+        viewModel.airlines.subscribe { [unowned self] _ in
             DispatchQueue.main.async {
                 if self.refreshControl.isRefreshing {self.refreshControl.endRefreshing()}
                 self.tableView.reloadData()
             }
         }
         
-        viewModel.searchResults.subscribe { _ in
+        viewModel.searchResults.subscribe { [unowned self] _ in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -108,37 +108,37 @@ extension AirlinesVC {
     }
     
     func bindViewModelActions(){
-        viewModel.showDetailViewObserver = {viewModel in
+        viewModel.showDetailViewObserver = {[unowned self] viewModel in
             guard let airlineDetailVC = self.storyboard?.instantiateAirlineDetailsVC() else {return}
             airlineDetailVC.airlineDetailViewModel = viewModel
             self.navigationController?.pushViewController(airlineDetailVC, animated: true)
         }
         
-        viewModel.showMessageObserver = { title, message in
+        viewModel.showMessageObserver = { [unowned self] title, message in
             DispatchQueue.main.async {
                 self.showAlert(withTitle: title, andErrorMessage: message)
             }
         }
         
-        viewModel.showloadingIndicatorObserver = {
+        viewModel.showloadingIndicatorObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.showLoadingIndicator()
             }
         }
         
-        viewModel.dismissloadingIndicatorObserver = {
+        viewModel.dismissloadingIndicatorObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.dismissLoadingIndicator()
             }
         }
         
-        viewModel.enableAddButtonObserver = {
+        viewModel.enableAddButtonObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.addButton.isEnabled = true
             }
         }
         
-        viewModel.disableAddButtonObserver = {
+        viewModel.disableAddButtonObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.addButton.isEnabled = false
             }

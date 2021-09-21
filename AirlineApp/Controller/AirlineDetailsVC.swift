@@ -39,7 +39,7 @@ extension AirlineDetailsVC {
     }
     
     func bindViewModelProperties(){
-        airlineDetailViewModel.airline.subscribe { airline in
+        airlineDetailViewModel.airline.subscribe { [unowned self] airline in
             self.nameLabel.text = airline?.name ?? ""
             self.countryLabel.text = airline?.country ?? ""
             self.sloganLabel.text = airline?.slogan ?? ""
@@ -47,7 +47,7 @@ extension AirlineDetailsVC {
             self.establishDateLabel.text = airline?.established ?? ""
         }
         
-        airlineDetailViewModel.logo.subscribe{image in
+        airlineDetailViewModel.logo.subscribe{[unowned self] image in
             DispatchQueue.main.async {
                 self.logoImageView.image = image
             }
@@ -55,7 +55,7 @@ extension AirlineDetailsVC {
     }
     
     func bindViewModelActions(){
-        airlineDetailViewModel.openSafariObserver = {url in
+        airlineDetailViewModel.openSafariObserver = {[unowned self] url in
             let vc = SFSafariViewController(url: url)
             self.present(vc, animated: true)
         }

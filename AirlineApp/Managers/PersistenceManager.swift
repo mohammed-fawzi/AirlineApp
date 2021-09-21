@@ -35,8 +35,6 @@ class PersistenceManager {
         }
        
     }
-    
- 
 }
 
 //MARK:- Collections
@@ -79,5 +77,4 @@ extension PersistenceManager {
         _ = try? container.viewContext.execute(deleteRequest)
             
     }
-    
 }

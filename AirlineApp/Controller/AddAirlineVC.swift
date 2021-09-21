@@ -50,65 +50,65 @@ extension AddAirlineVC {
     
     func bindViewModelProperties(){
  
-        addAirlineViewModel.name.subscribe { name in
+        addAirlineViewModel.name.subscribe { [unowned self] name in
             self.nameTextField.text = name
         }
         
-        addAirlineViewModel.country.subscribe { country in
+        addAirlineViewModel.country.subscribe { [unowned self] country in
             self.countryTextField.text = country
         }
         
-        addAirlineViewModel.slogan.subscribe { slogan in
+        addAirlineViewModel.slogan.subscribe { [unowned self] slogan in
             self.sloganTextField.text = slogan
         }
         
-        addAirlineViewModel.headQuarter.subscribe { headQuarter in
+        addAirlineViewModel.headQuarter.subscribe { [unowned self] headQuarter in
             self.headQuarterTextField.text = headQuarter
         }
         
-        addAirlineViewModel.logoUrl.subscribe { logoUrl in
+        addAirlineViewModel.logoUrl.subscribe { [unowned self] logoUrl in
             self.logoUrlTextField.text = logoUrl
         }
         
-        addAirlineViewModel.website.subscribe { website in
+        addAirlineViewModel.website.subscribe { [unowned self] website in
             self.websiteTextField.text = website
         }
         
-        addAirlineViewModel.establishDate.subscribe { date in
+        addAirlineViewModel.establishDate.subscribe { [unowned self] date in
             self.establishDateTextField.text = date
         }
     }
     
     func bindViewControllerTextFields(){
-        idTextField.subscribe { id in
+        idTextField.subscribe { [unowned self] id in
             self.addAirlineViewModel.id.value = id
         }
         
-        nameTextField.subscribe { name in
+        nameTextField.subscribe {[unowned self] name in
             self.addAirlineViewModel.name.value = name
         }
         
-        countryTextField.subscribe { country in
+        countryTextField.subscribe { [unowned self] country in
             self.addAirlineViewModel.country.value = country
         }
         
-        sloganTextField.subscribe { slogan in
+        sloganTextField.subscribe { [unowned self] slogan in
             self.addAirlineViewModel.slogan.value = slogan
         }
         
-        headQuarterTextField.subscribe { headQuarter in
+        headQuarterTextField.subscribe { [unowned self] headQuarter in
             self.addAirlineViewModel.headQuarter.value = headQuarter
         }
         
-        logoUrlTextField.subscribe { url in
+        logoUrlTextField.subscribe { [unowned self] url in
             self.addAirlineViewModel.logoUrl.value = url
         }
         
-        websiteTextField.subscribe { website in
+        websiteTextField.subscribe { [unowned self] website in
             self.addAirlineViewModel.website.value = website
         }
         
-        establishDateTextField.subscribe { date in
+        establishDateTextField.subscribe { [unowned self] date in
             self.addAirlineViewModel.establishDate.value = date
         }
     }
@@ -120,19 +120,19 @@ extension AddAirlineVC {
             }
         }
         
-        addAirlineViewModel.dismissSelfObserver = {
+        addAirlineViewModel.dismissSelfObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }
         }
         
-        addAirlineViewModel.showloadingIndicatorObserver = {
+        addAirlineViewModel.showloadingIndicatorObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.showLoadingIndicator()
             }
         }
         
-        addAirlineViewModel.dismissloadingIndicatorObserver = {
+        addAirlineViewModel.dismissloadingIndicatorObserver = { [unowned self] in
             DispatchQueue.main.async {
                 self.dismissLoadingIndicator()
             }
