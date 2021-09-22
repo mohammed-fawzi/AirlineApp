@@ -24,24 +24,27 @@ class AirlinesViewModel {
     var disableAddButtonObserver: (() -> Void)?
     var enableAddButtonObserver: (() -> Void)?
     
+    var networkManager = NetworkManager.shared
+    var persistenceManager = PersistenceManager.shared
     init() {
         airlines = Observable([Airline]())
         searchResults = Observable([Airline]())
         getAirlines()
     }
     
-    private func getAirlines(){
-        NetworkManager.shared.getAirlines { result in
+    func getAirlines(){
+        networkManager.getAirlines { [weak self] result in
+            guard let self = self else {return}
             switch result{
             case .success(let airlines):
                 self.dismissloadingIndicatorObserver?()
                 self.airlines.value = airlines
-                PersistenceManager.shared.addAirlines(airlines: airlines)
+                self.persistenceManager.addAirlines(airlines: airlines)
                 self.enableAddButtonObserver?()
             case .failure(let error):
                 if error == .noInternetConnection {
                     self.dismissloadingIndicatorObserver?()
-                    let cdAirlines = PersistenceManager.shared.getAllAirlines()
+                    let cdAirlines = self.persistenceManager.getAllAirlines()
                     self.airlines.value = cdAirlines.map {Airline(cdAirline: $0)}
                     self.disableAddButtonObserver?()
                 }
@@ -56,7 +59,9 @@ class AirlinesViewModel {
     }
     
     func numberOfAirlines()->Int{
-        return !searchText.isEmpty ? searchResults.value!.count :airlines.value?.count ?? 0
+        guard let searchResults = searchResults.value,
+              let airlines = airlines.value else {return 0}
+        return !searchText.isEmpty ? searchResults.count :airlines.count
     }
     
     func selectedRow(atIndexPath indexPath: IndexPath){

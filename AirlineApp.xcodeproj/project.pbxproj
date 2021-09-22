@@ -13,7 +13,6 @@
 		7168739926F7918E00AD0DE6 /* AirlineApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7168739726F7918E00AD0DE6 /* AirlineApp.xcdatamodeld */; };
 		7168739B26F7919100AD0DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7168739A26F7919100AD0DE6 /* Assets.xcassets */; };
 		7168739E26F7919100AD0DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7168739C26F7919100AD0DE6 /* LaunchScreen.storyboard */; };
-		716873A926F7919100AD0DE6 /* AirlineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873A826F7919100AD0DE6 /* AirlineAppTests.swift */; };
 		716873B426F7919100AD0DE6 /* AirlineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873B326F7919100AD0DE6 /* AirlineAppUITests.swift */; };
 		716873C726F7B4D600AD0DE6 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873C626F7B4D600AD0DE6 /* Airline.swift */; };
 		716873C926F7B6C000AD0DE6 /* AirlinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716873C826F7B6C000AD0DE6 /* AirlinesVC.swift */; };
@@ -36,6 +35,11 @@
 		71FE001826FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001626FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift */; };
 		71FE001926FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001726FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift */; };
 		71FE001B26FA4ADA00C8E1B6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001A26FA4ADA00C8E1B6 /* PersistenceManager.swift */; };
+		71FE001E26FA8D8700C8E1B6 /* AirlinesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE001D26FA8D8700C8E1B6 /* AirlinesViewModelTests.swift */; };
+		71FE002226FA9B8B00C8E1B6 /* MockAirlinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE002126FA9B8B00C8E1B6 /* MockAirlinesVC.swift */; };
+		71FE002526FAA64C00C8E1B6 /* AirlinesVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE002426FAA64C00C8E1B6 /* AirlinesVCProtocol.swift */; };
+		71FE002826FAEA6A00C8E1B6 /* StubNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE002726FAEA6A00C8E1B6 /* StubNetworkManager.swift */; };
+		71FE002A26FB017B00C8E1B6 /* StubPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE002926FB017B00C8E1B6 /* StubPersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +69,6 @@
 		7168739D26F7919100AD0DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7168739F26F7919100AD0DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		716873A426F7919100AD0DE6 /* AirlineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		716873A826F7919100AD0DE6 /* AirlineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineAppTests.swift; sourceTree = "<group>"; };
 		716873AA26F7919100AD0DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		716873AF26F7919100AD0DE6 /* AirlineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		716873B326F7919100AD0DE6 /* AirlineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineAppUITests.swift; sourceTree = "<group>"; };
@@ -91,6 +94,11 @@
 		71FE001626FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAirline+CoreDataClass.swift"; sourceTree = "<group>"; };
 		71FE001726FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAirline+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		71FE001A26FA4ADA00C8E1B6 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		71FE001D26FA8D8700C8E1B6 /* AirlinesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesViewModelTests.swift; sourceTree = "<group>"; };
+		71FE002126FA9B8B00C8E1B6 /* MockAirlinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAirlinesVC.swift; sourceTree = "<group>"; };
+		71FE002426FAA64C00C8E1B6 /* AirlinesVCProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesVCProtocol.swift; sourceTree = "<group>"; };
+		71FE002726FAEA6A00C8E1B6 /* StubNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkManager.swift; sourceTree = "<group>"; };
+		71FE002926FB017B00C8E1B6 /* StubPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,13 +149,13 @@
 		7168738D26F7918D00AD0DE6 /* AirlineApp */ = {
 			isa = PBXGroup;
 			children = (
+				71FE002326FAA63000C8E1B6 /* Protocols */,
 				716873C126F7B2D900AD0DE6 /* Model */,
 				716873C226F7B2E100AD0DE6 /* View */,
 				716873C326F7B2EF00AD0DE6 /* Controller */,
 				716873C526F7B30B00AD0DE6 /* ViewModel */,
 				716873E526F806B800AD0DE6 /* Extentions */,
 				716873D226F7C35200AD0DE6 /* Managers */,
-				716873C426F7B2FF00AD0DE6 /* Helpers */,
 				716873D026F7C2BD00AD0DE6 /* Support */,
 				7168739F26F7919100AD0DE6 /* Info.plist */,
 				7168739726F7918E00AD0DE6 /* AirlineApp.xcdatamodeld */,
@@ -158,7 +166,9 @@
 		716873A726F7919100AD0DE6 /* AirlineAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				716873A826F7919100AD0DE6 /* AirlineAppTests.swift */,
+				71FE002626FAEA3900C8E1B6 /* Stubs */,
+				71FE001F26FA9B4500C8E1B6 /* Mocks */,
+				71FE001C26FA8D4800C8E1B6 /* ViewModels */,
 				716873AA26F7919100AD0DE6 /* Info.plist */,
 			);
 			path = AirlineAppTests;
@@ -204,14 +214,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		716873C426F7B2FF00AD0DE6 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				716873CE26F7C27800AD0DE6 /* Constants.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		716873C526F7B30B00AD0DE6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +256,7 @@
 		716873D526F7C7AF00AD0DE6 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				716873CE26F7C27800AD0DE6 /* Constants.swift */,
 				716873D626F7C8EA00AD0DE6 /* AirlineApiError.swift */,
 				716873EA26F80F9800AD0DE6 /* AddAirlineFormError.swift */,
 			);
@@ -293,6 +296,47 @@
 				71FE001626FA4AA100C8E1B6 /* CDAirline+CoreDataClass.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		71FE001C26FA8D4800C8E1B6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				71FE001D26FA8D8700C8E1B6 /* AirlinesViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		71FE001F26FA9B4500C8E1B6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				71FE002026FA9B4E00C8E1B6 /* ViewControllers */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		71FE002026FA9B4E00C8E1B6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				71FE002126FA9B8B00C8E1B6 /* MockAirlinesVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		71FE002326FAA63000C8E1B6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				71FE002426FAA64C00C8E1B6 /* AirlinesVCProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		71FE002626FAEA3900C8E1B6 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				71FE002726FAEA6A00C8E1B6 /* StubNetworkManager.swift */,
+				71FE002926FB017B00C8E1B6 /* StubPersistenceManager.swift */,
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,6 +491,7 @@
 				716873EF26F9646300AD0DE6 /* UIViewController + Extention.swift in Sources */,
 				71FE001926FA4AA100C8E1B6 /* CDAirline+CoreDataProperties.swift in Sources */,
 				7168739126F7918E00AD0DE6 /* SceneDelegate.swift in Sources */,
+				71FE002526FAA64C00C8E1B6 /* AirlinesVCProtocol.swift in Sources */,
 				716873E426F7FB6900AD0DE6 /* AirlineDetailsViewModel.swift in Sources */,
 				716873CF26F7C27800AD0DE6 /* Constants.swift in Sources */,
 			);
@@ -456,7 +501,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				716873A926F7919100AD0DE6 /* AirlineAppTests.swift in Sources */,
+				71FE002826FAEA6A00C8E1B6 /* StubNetworkManager.swift in Sources */,
+				71FE002A26FB017B00C8E1B6 /* StubPersistenceManager.swift in Sources */,
+				71FE001E26FA8D8700C8E1B6 /* AirlinesViewModelTests.swift in Sources */,
+				71FE002226FA9B8B00C8E1B6 /* MockAirlinesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,21 +24,15 @@ class PersistenceManager {
         return container
     } ()
     
-   private init() {
-    }
-    
     func save( ){
         do {
             try container.viewContext.save()
         } catch let error {
             print("error while saving context change: \(error)")
         }
-       
     }
-}
-
-//MARK:- Collections
-extension PersistenceManager {
+    
+    //MARK:- CRUD
     func getAllAirlines() -> [CDAirline]{
     let request : NSFetchRequest<CDAirline> = CDAirline.fetchRequest()
     request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]

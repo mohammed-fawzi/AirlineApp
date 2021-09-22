@@ -7,7 +7,8 @@
 
 import UIKit
 
-class AirlinesVC: UIViewController {
+class AirlinesVC: UIViewController, AirlinesVCProtocol {
+    
     
     //MARK:- Outlets & Variables
     @IBOutlet weak var tableView: UITableView!

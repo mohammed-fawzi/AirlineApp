@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Airline: Codable {
+struct Airline: Codable, Equatable {
     var id: Double?
     var name: String
     var country: String?

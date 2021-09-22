@@ -9,7 +9,6 @@ import UIKit.UIImage
 
 class NetworkManager{
     static let shared = NetworkManager()
-    private init(){}
     
     private let cache = NSCache<NSString,UIImage>()
     private let baseURL = "https://api.instantwebtools.net/v1/airlines"
