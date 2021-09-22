@@ -53,7 +53,7 @@ extension AirlinesVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "airlineCell", for: indexPath) as! AirlineCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.airlineCell.rawValue, for: indexPath) as! AirlineCell
         cell.viewModel = viewModel.airlineCellViewModel(atIndexPath: indexPath)
         return cell
     }

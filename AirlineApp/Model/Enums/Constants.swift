@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Cells {
+enum Cells: String{
     case airlineCell
 }
 

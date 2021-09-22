@@ -24,13 +24,13 @@ class AddAirlineViewModel {
     
     init() {
         id = Observable("")
-        name = Observable("Test3")
-        country = Observable("Egypt")
-        slogan = Observable("slogan")
-        headQuarter = Observable("Cairo")
-        logoUrl = Observable("Logo")
-        website = Observable("site")
-        establishDate = Observable("1994")
+        name = Observable("")
+        country = Observable("")
+        slogan = Observable("")
+        headQuarter = Observable("")
+        logoUrl = Observable("")
+        website = Observable("")
+        establishDate = Observable("")
         }
         
     func confirmButtonClicked() {
