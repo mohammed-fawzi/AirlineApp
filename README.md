@@ -22,5 +22,5 @@ Airline shows you airlines around the world
 
 
 ## How To Use
--No specific requirment just download and run
--To fetch latest data pull down the table to refresh
+- No specific requirment just download and run
+- To fetch latest data pull down the table to refresh
