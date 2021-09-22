@@ -103,6 +103,7 @@ extension AirlinesVC {
         
         viewModel.searchResults.subscribe { [unowned self] _ in
             DispatchQueue.main.async {
+                if self.refreshControl.isRefreshing {self.refreshControl.endRefreshing()}
                 self.tableView.reloadData()
             }
         }

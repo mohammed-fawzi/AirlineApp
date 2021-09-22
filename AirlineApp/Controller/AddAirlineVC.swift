@@ -144,9 +144,8 @@ extension AddAirlineVC {
 extension AddAirlineVC {
     
     func observeKeyboard(){
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
@@ -164,10 +163,19 @@ extension AddAirlineVC {
     }
       
 
-    @objc func keyboardWillShow(_ notification: Notification) {
-      adjustInsetForKeyboardShow(true, notification: notification)
+
+    @objc func keyboardWillShow(notification:NSNotification){
+        let userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
     }
-    @objc func keyboardWillHide(_ notification: Notification) {
-      adjustInsetForKeyboardShow(false, notification: notification)
+
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 }
